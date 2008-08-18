@@ -12,6 +12,10 @@ class HushCMS::Page < ActiveRecord::Base
   before_validation :assign_slug_if_absent
     
   
+  def to_s
+    title
+  end
+  
   def published?
     published_at
   end
@@ -22,6 +26,14 @@ class HushCMS::Page < ActiveRecord::Base
   
   def unpublish!
     update_attribute :published_at, nil
+  end
+  
+  def breadcrumbs
+    parent ? parent.breadcrumbs << self : [self]
+  end
+  
+  def path
+    breadcrumbs.map { |p| p.slug }.join('/')
   end
   
   def self.locate(path, parent=nil)
