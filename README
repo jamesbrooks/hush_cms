@@ -1,0 +1,13 @@
+HushCms
+=======
+
+A content management extension for Rails, unobtrusively adding static (page) and dynamic (post) content retrieval and management.
+
+
+Example
+=======
+
+TODO: Examples
+
+
+Copyright (c) 2008 James Brooks (james@gooddogdesign.com), released under the MIT license

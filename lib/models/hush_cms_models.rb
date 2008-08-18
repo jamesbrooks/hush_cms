@@ -1,0 +1,5 @@
+require 'models/hush_cms'
+require 'models/hush_cms/category'
+require 'models/hush_cms/comment'
+require 'models/hush_cms/page'
+require 'models/hush_cms/post'
