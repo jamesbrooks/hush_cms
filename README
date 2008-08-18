@@ -1,4 +1,4 @@
-HushCms
+Hush CMS
 =======
 
 A content management extension for Rails, unobtrusively adding static (page) and dynamic (post) content retrieval and management.
@@ -7,7 +7,32 @@ A content management extension for Rails, unobtrusively adding static (page) and
 Example
 =======
 
-TODO: Examples
+* Install Hush CMS
+
+  script/plugin install git://github.com/JamesBrooks/hush_cms.git
+
+* Generate migrations for CMS models (and migrate)
+
+  script/generate hush_cms migrations
+  rake db:migrate
+
+* Add a route for CMS pages in config/routes.rb, e.g.
+
+  ActionController::Routing::Routes.draw do |map|
+    map.hush_cms_pages 'pages/*path'
+
+    ...
+  end
+  
+* Add a hook into ApplicationController to handle any pages
+
+  class ApplicationController < ActionController::Base
+    provides_pages
+    
+    ...
+  end
+  
+* Done! (More documentation to come once page administration is complete, as well as posts/categories and comments).
 
 
 Copyright (c) 2008 James Brooks (james@gooddogdesign.com), released under the MIT license
