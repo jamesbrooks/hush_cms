@@ -12,12 +12,21 @@ class HushCMS::Page < ActiveRecord::Base
   before_validation :assign_slug_if_absent
     
   
+  def published?
+    published_at
+  end
+  
   def publish!
     update_attribute :published_at, Time.now
   end
   
   def unpublish!
     update_attribute :published_at, nil
+  end
+  
+  def self.locate(path, parent=nil)
+    page = parent ? parent.children.find_by_slug(path.shift) : find_by_slug(path.shift)
+    path.empty? ? page : locate(path, page)
   end
   
   
