@@ -1,3 +1,9 @@
+# Load HAML
+require 'haml'
+unless defined?(Haml)
+  raise Exception.new("Hush CMS requires 'haml' to be installed:  gem install haml")
+end
+
 require 'extensions/string'
 require 'extensions/mapper'
 require 'extensions/acts_as_list'
