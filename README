@@ -11,18 +11,24 @@ Example
 
   script/plugin install git://github.com/JamesBrooks/hush_cms.git
 
+
+* Follow the instructions and edit config/hush.yml, as well as ensuring haml is installed
+
 * Generate migrations for CMS models (and migrate)
 
   script/generate hush_cms migrations
   rake db:migrate
 
-* Add a route for CMS pages in config/routes.rb, e.g.
+
+* Add a route for CMS pages and admin in config/routes.rb, e.g.
 
   ActionController::Routing::Routes.draw do |map|
     map.hush_cms_pages 'pages/*path'
+    map.hush_cms_admin 'admin/cms'
 
     ...
   end
+
   
 * Done! (More documentation to come once page administration is complete, as well as posts/categories and comments).
 
