@@ -49,15 +49,21 @@ ul#navigation li#nav-posts a {
 }
 #pages ul {
 	list-style: none;
+	margin-bottom: 10px;
 }
 #pages > ul {
 	padding: 0;
-	font-size: 1.1em;
+	font-size: 1.2em;
 }
-#pages > ul li {
-	margin-bottom: 15px;
+#pages > ul > li {
+	margin-bottom: 25px;
+}
+#pages > ul > li > ul {
+	font-size: 0.8em;
+}
+#pages > ul > li > ul > li > ul {
+	font-size: 0.8em;
 }
 #pages ul ul {
 	padding-left: 15px;
-	font-size: 0.8em;
 }
