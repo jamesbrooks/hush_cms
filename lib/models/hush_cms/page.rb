@@ -7,6 +7,7 @@ class HushCMS::Page < ActiveRecord::Base
   has_many :children, :class_name => 'HushCMS::Page', :foreign_key => 'parent_id', :order => 'position ASC'
   
   named_scope :published, :conditions => 'published_at IS NOT NULL'
+  named_scope :children_of, lambda { |parent| { :conditions => { :parent_id => parent.id } } }
   
   validates_presence_of :title, :slug
   validates_uniqueness_of :slug, :scope => :parent_id
@@ -36,6 +37,10 @@ class HushCMS::Page < ActiveRecord::Base
   
   def path
     breadcrumbs.map { |p| p.slug }.join('/')
+  end
+  
+  def self.base_pages
+    find_all_by_parent_id nil, :order => 'position ASC'
   end
   
   def self.locate(path, parent=nil)

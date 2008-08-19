@@ -1,0 +1,5 @@
+%h2 Pages
+= link_to 'Create New Page', new_hush_cms_admin_page_path
+
+#pages
+  = render :partial => 'pages', :object => @pages
