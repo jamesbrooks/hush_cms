@@ -1,0 +1,9 @@
+
+
+Hush CMS
+========
+
+Hush CMS has been installed, by default the administrative area is disabled for security purposes. To enable the administrative area, change and un-comment the username and password lines in config/hush.yml
+
+
+
