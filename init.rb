@@ -1,7 +1,1 @@
-require 'hush_cms'
-
-ActionController::Base.class_eval do
-  include ProvidesPages
-end
-
-ActionView::Base.send :include, HushCMS::ViewHelpers
+require File.join(File.dirname(__FILE__), 'lib', 'hush_cms')

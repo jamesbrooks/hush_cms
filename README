@@ -24,14 +24,6 @@ Example
     ...
   end
   
-* Add a hook into ApplicationController to handle any pages
-
-  class ApplicationController < ActionController::Base
-    provides_pages
-    
-    ...
-  end
-  
 * Done! (More documentation to come once page administration is complete, as well as posts/categories and comments).
 
 

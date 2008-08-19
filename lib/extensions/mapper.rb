@@ -3,7 +3,7 @@ module ActionController
     class RouteSet
       class Mapper
         def hush_cms_pages(path, options = {})          
-          named_route "hush_cms_page", path, :controller => 'application', :action => 'hush_cms_locate_page'
+          named_route "hush_cms_page", path, :controller => 'hush_cms_pages', :action => 'show'
         end
       end
     end
