@@ -4,7 +4,7 @@ class HushCMS::Page < ActiveRecord::Base
   acts_as_list :scope => :parent_id
   
   belongs_to :parent, :class_name => 'HushCMS::Page', :foreign_key => 'parent_id'
-  has_many :children, :class_name => 'HushCMS::Page', :foreign_key => 'parent_id'
+  has_many :children, :class_name => 'HushCMS::Page', :foreign_key => 'parent_id', :order => 'position ASC'
   
   named_scope :published, :conditions => 'published_at IS NOT NULL'
   
