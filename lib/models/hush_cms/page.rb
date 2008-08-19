@@ -1,6 +1,8 @@
 class HushCMS::Page < ActiveRecord::Base
   set_table_name 'hush_cms_pages'
   
+  acts_as_list :scope => :parent_id
+  
   belongs_to :parent, :class_name => 'HushCMS::Page', :foreign_key => 'parent_id'
   has_many :children, :class_name => 'HushCMS::Page', :foreign_key => 'parent_id'
   
@@ -8,7 +10,7 @@ class HushCMS::Page < ActiveRecord::Base
   
   validates_presence_of :title, :slug
   validates_uniqueness_of :slug, :scope => :parent_id
-  
+
   before_validation :assign_slug_if_absent
     
   

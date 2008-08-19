@@ -1,5 +1,6 @@
 require 'extensions/string'
 require 'extensions/mapper'
+require 'extensions/acts_as_list'
 
 module HushCMS
   class << self
@@ -12,7 +13,8 @@ module HushCMS
         Dependencies.load_paths << path
         Dependencies.load_once_paths.delete(path)
       end
-    
+
+      ActiveRecord::Base.class_eval { include ActiveRecord::Acts::List }
       ActionController::Base.append_view_path(File.join(File.dirname(__FILE__), 'views'))
       ActionView::Base.send :include, HushCMSViewHelpers
       
