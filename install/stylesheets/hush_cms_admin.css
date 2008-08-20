@@ -70,19 +70,30 @@ ul#navigation li#nav-posts a {
   -webkit-border-radius: 8px;
  	-opera-border-radius: 8px;
 }
-#sidebar a#sidebar-new-page {
+#sidebar a#sidebar-new-page,
+#sidebar a#sidebar-publish,
+#sidebar a#sidebar-unpublish {
 	display: block;
 	font-size: 0.8em;
 	color: #278FD5;
+	margin-bottom: 5px;
 	padding: 3px 0 0 18px;
 	background-repeat: no-repeat;
 	text-decoration: none;
 }
-#sidebar a#sidebar-new-page:hover {
+#sidebar a#sidebar-new-page:hover,
+#sidebar a#sidebar-publish:hover,
+#sidebar a#sidebar-unpublish:hover {
 	text-decoration: underline;
 }
 #sidebar a#sidebar-new-page {
 	background-image: url(../images/hush_cms/page_add.png);
+}
+#sidebar a#sidebar-publish {
+	background-image: url(../images/hush_cms/lightbulb.png);
+}
+#sidebar a#sidebar-unpublish {
+	background-image: url(../images/hush_cms/lightbulb_off.png);
 }
 
 #content {

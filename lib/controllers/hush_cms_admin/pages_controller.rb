@@ -1,5 +1,5 @@
 class HushCmsAdmin::PagesController < HushCmsAdminController
-  before_filter :find_page, :only => [ :show, :edit, :update, :destroy ]
+  before_filter :find_page, :except => [ :index, :new, :create ]
   
   
   def index
@@ -23,6 +23,16 @@ class HushCmsAdmin::PagesController < HushCmsAdminController
   end
   
   def destroy
+  end
+  
+  def publish
+    @page.publish!
+    redirect_to hush_cms_admin_page_url(@page)
+  end
+  
+  def unpublish
+    @page.unpublish!
+    redirect_to hush_cms_admin_page_url(@page)
   end
   
   
