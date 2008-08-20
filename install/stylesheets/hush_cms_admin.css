@@ -13,6 +13,9 @@ h1 {
 	padding: 20px;
 	background-color: #fff;
 	border: 1px solid #C9C4AF;
+	-moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+ 	-opera-border-radius: 5px;
 }
 
 ul#navigation {
@@ -60,12 +63,28 @@ ul#navigation li#nav-posts a {
 	float: left;
 	width: 220px;
 	margin-right: 20px;
-	padding-right: 20px;
+	padding: 10px;
 	background-color: #f5f5f5;
 	border: 1px solid #ccc;
 	-moz-border-radius: 8px;
   -webkit-border-radius: 8px;
+ 	-opera-border-radius: 8px;
 }
+#sidebar a#sidebar-new-page {
+	display: block;
+	font-size: 0.8em;
+	color: #278FD5;
+	padding: 3px 0 0 18px;
+	background-repeat: no-repeat;
+	text-decoration: none;
+}
+#sidebar a#sidebar-new-page:hover {
+	text-decoration: underline;
+}
+#sidebar a#sidebar-new-page {
+	background-image: url(../images/hush_cms/page_add.png);
+}
+
 #content {
 	float: left;
 }
@@ -78,4 +97,24 @@ ul#navigation li#nav-posts a {
 #breadcrumbs a {
 	color: #4D99D5;
 	font-weight: bold;
+}
+
+ul#pages {
+	margin: 10px 0 0;
+	padding: 0;
+	list-style: none;
+}
+ul#pages li {
+	padding: 10px 0;
+}
+ul#pages li a.title {
+	color: #222;
+	text-decoration: none;
+}
+ul#pages li a.title:hover {
+	text-decoration: underline;
+}
+ul#pages li .published {
+	font-size: 0.7em;
+	color: #666;
 }

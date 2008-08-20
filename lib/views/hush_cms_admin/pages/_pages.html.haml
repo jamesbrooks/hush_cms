@@ -1,5 +1,11 @@
-%ul#pages
-  - pages.each do |page|
-    %li{:id => "page-#{page.id}"}
-      = link_to page.title, hush_cms_admin_page_path(page)
+- unless pages.empty?
+  %ul#pages
+    - pages.each do |page|
+      %li{:id => "page-#{page.id}"}
+        = link_to page.title, hush_cms_admin_page_path(page), :class => 'title'
+        .published
+          - if page.published?
+            = "published #{page.published_at.to_s(:short)}"
+          - else
+            not published  
         

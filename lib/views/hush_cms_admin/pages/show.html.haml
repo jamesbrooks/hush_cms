@@ -2,6 +2,7 @@
 - @link = hush_cms_page_url(@page.path)
 
 - content_for :sidebar do
+  = link_to 'New Page', new_hush_cms_admin_page_path(:parent => @page.id), :id => 'sidebar-new-page'
   = render :partial => 'pages', :object => @children
 
 #breadcrumbs
