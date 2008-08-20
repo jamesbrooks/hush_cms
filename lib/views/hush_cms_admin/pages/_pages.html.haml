@@ -1,6 +1,5 @@
-%ul
+%ul#pages
   - pages.each do |page|
-    %li
+    %li{:id => "page-#{page.id}"}
       = link_to page.title, hush_cms_admin_page_path(page)
-      = render :partial => 'pages', :object => page.children unless page.children.empty?
         

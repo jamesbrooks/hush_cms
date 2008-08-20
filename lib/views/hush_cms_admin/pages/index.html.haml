@@ -1,5 +1,6 @@
-%h2 Pages
-= link_to 'Create New Page', new_hush_cms_admin_page_path
+- @title = 'Pages'
 
-#pages
+- content_for :sidebar do
   = render :partial => 'pages', :object => @pages
+
+Other Content

@@ -19,6 +19,10 @@ class HushCMS::Page < ActiveRecord::Base
     title
   end
   
+  def to_param
+    [id, title].join(' ').slugify
+  end
+  
   def published?
     published_at
   end

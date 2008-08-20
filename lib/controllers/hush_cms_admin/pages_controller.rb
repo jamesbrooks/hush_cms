@@ -7,6 +7,7 @@ class HushCmsAdmin::PagesController < HushCmsAdminController
   end
   
   def show
+    @children = @page.children
   end
   
   def new

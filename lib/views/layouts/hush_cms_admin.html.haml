@@ -13,4 +13,14 @@
         %li#nav-pages= link_to 'Pages', hush_cms_admin_pages_path
         %li#nav-posts= link_to 'Posts', hush_cms_admin_posts_path
       
-      = yield
+      %h1= @title
+      #link
+        = link_to(@link, @link) if @link
+      
+      #sidebar
+        = yield :sidebar
+      
+      #content
+        = yield
+        
+      %div{:style => 'clear: left'}

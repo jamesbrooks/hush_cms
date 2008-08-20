@@ -1,0 +1,11 @@
+- @title = @page.title
+- @link = hush_cms_page_url(@page.path)
+
+- content_for :sidebar do
+  = render :partial => 'pages', :object => @children
+
+#breadcrumbs
+  = link_to('Base Pages', hush_cms_admin_pages_path) + ' &raquo; '
+  = @page.breadcrumbs.map { |p| link_to p.title, hush_cms_admin_page_path(p) }.join(' &raquo; ')
+
+Other Content
