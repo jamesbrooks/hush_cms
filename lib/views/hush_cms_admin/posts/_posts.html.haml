@@ -1,10 +1,11 @@
 - unless posts.empty?
   %ul#posts
     - posts.each do |post|
-      %li{:id => "post-#{post.id}"}
-        = link_to post.title, hush_cms_admin_category_post_path(@category, post), :class => 'title'
-        %span
-          - if post.published?
-            = "published #{post.published_at.to_s(:short)}"
-          - else
-            not published
+      - unless post.new_record?
+        %li{:id => "post-#{post.id}"}
+          = link_to post.title, hush_cms_admin_category_post_path(@category, post), :class => 'title'
+          %span
+            - if post.published?
+              = "published #{post.published_at.to_s(:short)}"
+            - else
+              not published

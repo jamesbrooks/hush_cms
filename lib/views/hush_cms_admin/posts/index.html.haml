@@ -3,3 +3,8 @@
 - content_for :sidebar do
   = link_to 'New Post', new_hush_cms_admin_category_post_path(@category), :id => 'sidebar-new-post'
   = render :partial => 'posts', :object => @posts
+
+#breadcrumbs
+  = link_to('All Categories', hush_cms_admin_categories_path)
+  &raquo;
+  = link_to(@category.name, hush_cms_admin_category_posts_path(@category))

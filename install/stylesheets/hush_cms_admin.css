@@ -76,7 +76,8 @@ ul#navigation li#nav-posts a {
 #sidebar a#sidebar-unpublish,
 #sidebar a#sidebar-edit-page,
 #sidebar a#sidebar-new-category,
-#sidebar a#sidebar-new-post {
+#sidebar a#sidebar-new-post,
+#sidebar a#sidebar-edit-post {
 	display: block;
 	font-size: 0.8em;
 	color: #278FD5;
@@ -90,7 +91,8 @@ ul#navigation li#nav-posts a {
 #sidebar a#sidebar-unpublish:hover,
 #sidebar a#sidebar-edit-page:hover,
 #sidebar a#sidebar-new-category:hover,
-#sidebar a#sidebar-new-post:hover {
+#sidebar a#sidebar-new-post:hover,
+#sidebar a#sidebar-edit-post:hover {
 	text-decoration: underline;
 }
 #sidebar a#sidebar-new-page {
@@ -108,6 +110,9 @@ ul#navigation li#nav-posts a {
 #sidebar a#sidebar-new-category,
 #sidebar a#sidebar-new-post {
 	background-image: url(../images/hush_cms/newspaper_add.png);
+}
+#sidebar a#sidebar-edit-post {
+	background-image: url(../images/hush_cms/pencil.png);
 }
 
 #content {
