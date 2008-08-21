@@ -1,7 +1,7 @@
 class HushCMS::Category < ActiveRecord::Base
   set_table_name 'hush_cms_categories'
   
-  has_many :posts, :order => 'published_at DESC'
+  has_many :posts, :dependent => :destroy, :order => 'published_at DESC'
   
   validates_presence_of :name, :slug
   validates_uniqueness_of :slug
