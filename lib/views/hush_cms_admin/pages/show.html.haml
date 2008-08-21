@@ -6,9 +6,11 @@
     = link_to 'Un-publish Page', unpublish_hush_cms_admin_page_path(@page), :method => :put, :id => 'sidebar-publish'
   - else
     = link_to 'Publish Page', publish_hush_cms_admin_page_path(@page), :method => :put, :id => 'sidebar-unpublish'
-    
+
   = link_to 'New Sub-page', new_hush_cms_admin_page_path(:parent => @page.id), :id => 'sidebar-new-page'
-  = render :partial => 'pages', :object => @children
+
+  = render :partial => 'pages', :object => @page.children
+  
 
 #breadcrumbs
   = link_to('Base Pages', hush_cms_admin_pages_path) + ' &raquo; '

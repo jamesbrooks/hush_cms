@@ -2,7 +2,7 @@ class CreateHushCmsComponents < ActiveRecord::Migration
   def self.up
     create_table :hush_cms_pages do |t|
       t.integer :parent_id, :position
-      t.string :title, :description, :slug
+      t.string :title, :slug
       t.text :content
       t.datetime :published_at
       t.timestamps

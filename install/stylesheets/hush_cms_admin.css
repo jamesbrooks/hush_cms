@@ -11,6 +11,7 @@ h1 {
 #container {
 	margin: 20px;
 	padding: 20px;
+	min-width: 870px;
 	background-color: #fff;
 	border: 1px solid #C9C4AF;
 	-moz-border-radius: 5px;
@@ -98,6 +99,7 @@ ul#navigation li#nav-posts a {
 
 #content {
 	float: left;
+	width: 605px;
 }
 
 #breadcrumbs {
@@ -128,4 +130,46 @@ ul#pages li a.title:hover {
 ul#pages li .published {
 	font-size: 0.7em;
 	color: #666;
+}
+
+form {
+	
+}
+form .row {
+	margin-bottom: 20px;
+}
+form .row label {
+	font-weight: bold;
+	display: block;
+}
+form .row input {
+	border: 1px solid #ccc;
+	width: 592px;
+	padding: 5px;
+	font-size: 0.8em;
+	-moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+ 	-opera-border-radius: 5px;
+}
+form .row input:focus {
+	background-color: #ffe;
+}
+form .row textarea {
+	width: 600px;
+}
+form .fieldWithErrors {
+	position: relative;
+}
+form .fieldWithErrors .input-error {
+	background-color: #FFEFA7;
+	border: 1px solid #C7A061;
+	position: absolute;
+	top: 4px;
+	right: 5px;
+	padding: 3px;
+	font-size: 0.7em;
+	font-weight: bold;
+	color: #a00;
+	opacity: 0.8;
+	-moz-border-radius:5px;
 }
