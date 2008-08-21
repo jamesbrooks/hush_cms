@@ -16,4 +16,5 @@
   = link_to('Base Pages', hush_cms_admin_pages_path) + ' &raquo; '
   = @page.breadcrumbs.map { |p| link_to p.title, hush_cms_admin_page_path(p) }.join(' &raquo; ')
 
-Other Content
+#rendered-content
+  = @page.content

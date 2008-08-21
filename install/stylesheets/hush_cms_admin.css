@@ -102,6 +102,14 @@ ul#navigation li#nav-posts a {
 	width: 605px;
 }
 
+#rendered-content {
+	border:1px solid #C9C4AF;
+	padding:10px;
+	-moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+ 	-opera-border-radius: 2px;
+}
+
 #breadcrumbs {
 	color: #2C5B7E;
 	font-size: 0.8em;
@@ -132,9 +140,6 @@ ul#pages li .published {
 	color: #666;
 }
 
-form {
-	
-}
 form .row {
 	margin-bottom: 20px;
 }
@@ -172,4 +177,6 @@ form .fieldWithErrors .input-error {
 	color: #a00;
 	opacity: 0.8;
 	-moz-border-radius:5px;
+	-webkit-border-radius: 5px;
+ 	-opera-border-radius: 5px;
 }
