@@ -7,6 +7,7 @@ A content management extension for Rails, unobtrusively adding static (page) and
 Requirements
 =======
 
+haml
 tiny_mce (check out http://github.com/kete/tiny_mce)
 
 

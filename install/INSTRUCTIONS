@@ -6,9 +6,14 @@ Hush CMS
 Hush CMS has been installed, by default the administrative area is disabled for security purposes. To enable the administrative area, change and un-comment the username and password lines in config/hush.yml
 
 
-Hush CMS depends on the haml gem, ensure this is installed:
+Hush CMS depends on the haml gem and the tiny_mce plugin, ensure these are installed:
   
+  haml:
   gem install haml
+  
+  tiny_mce:
+  script/plugin install git://github.com/kete/tiny_mce.git
+  rake tiny_mce:scripts:install
 
 
 
