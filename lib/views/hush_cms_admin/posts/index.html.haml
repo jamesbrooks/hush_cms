@@ -1,1 +1,5 @@
-TODO: Posts
+- @title = @category.name
+
+- content_for :sidebar do
+  = link_to 'New Post', new_hush_cms_admin_category_post_path(@category), :id => 'sidebar-new-post'
+  = render :partial => 'posts', :object => @posts

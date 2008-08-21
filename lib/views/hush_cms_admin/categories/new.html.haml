@@ -1,0 +1,19 @@
+- @title = 'New Category'
+
+- content_for :sidebar do
+  = link_to 'New Category', new_hush_cms_admin_category_path, :id => 'sidebar-new-category'
+  = render :partial => 'categories', :object => @categories
+
+#breadcrumbs
+  = link_to('All Categories', hush_cms_admin_categories_path)
+
+- form_for @category, :url => hush_cms_admin_categories_path do |form|
+  .row
+    = form.label :name
+    = form.text_field :name
+    
+  = submit_tag 'Create Category'
+
+- unless @category.errors.empty?
+  :javascript
+    markInputsWithErrors('hush_cms_category', {#{@category_errors.join(', ')}});

@@ -1,9 +1,10 @@
 class HushCmsAdmin::PostsController < HushCmsAdminController
+  before_filter :find_category
   before_filter :find_post, :except => [ :index, :new, :create ]
   
   
   def index
-    @posts = HushCMS::Post.find(:all)
+    @posts = @category.posts
   end
   
   def show
@@ -26,7 +27,11 @@ class HushCmsAdmin::PostsController < HushCmsAdminController
   
   
 private
+  def find_category
+    @category = HushCMS::Category.find(params[:category_id])
+  end
+
   def find_post
-    @post = HushCMS::Post.find(params[:id])
+    @post = @category.posts.find(params[:id])
   end
 end

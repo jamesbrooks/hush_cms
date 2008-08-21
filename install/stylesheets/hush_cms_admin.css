@@ -75,7 +75,8 @@ ul#navigation li#nav-posts a {
 #sidebar a#sidebar-publish,
 #sidebar a#sidebar-unpublish,
 #sidebar a#sidebar-edit-page,
-#sidebar a#sidebar-new-category {
+#sidebar a#sidebar-new-category,
+#sidebar a#sidebar-new-post {
 	display: block;
 	font-size: 0.8em;
 	color: #278FD5;
@@ -88,7 +89,8 @@ ul#navigation li#nav-posts a {
 #sidebar a#sidebar-publish:hover,
 #sidebar a#sidebar-unpublish:hover,
 #sidebar a#sidebar-edit-page:hover,
-#sidebar a#sidebar-new-category:hover {
+#sidebar a#sidebar-new-category:hover,
+#sidebar a#sidebar-new-post:hover {
 	text-decoration: underline;
 }
 #sidebar a#sidebar-new-page {
@@ -103,7 +105,8 @@ ul#navigation li#nav-posts a {
 #sidebar a#sidebar-edit-page {
 	background-image: url(../images/hush_cms/page_edit.png);	
 }
-#sidebar a#sidebar-new-category {
+#sidebar a#sidebar-new-category,
+#sidebar a#sidebar-new-post {
 	background-image: url(../images/hush_cms/newspaper_add.png);
 }
 
@@ -161,11 +164,15 @@ ul#navigation li#nav-posts a {
 	padding: 3px;
 }
 #sidebar ul li.hover a.move-higher,
-#sidebar ul li.hover a.move-lower {
+#sidebar ul li.hover a.move-lower,
+#sidebar ul li.hover a.delete-category,
+#sidebar ul li.hover a.edit-category {
 	display: block;
 }
 #sidebar ul li a.move-higher img,
-#sidebar ul li a.move-lower img {
+#sidebar ul li a.move-lower img,
+#sidebar ul li a.delete-category img,
+#sidebar ul li a.edit-category img {
 	position: absolute;
 	border: none;
 }
@@ -174,6 +181,20 @@ ul#navigation li#nav-posts a {
 }
 #sidebar ul li a.move-lower {
 	bottom: 12px;
+}
+#sidebar ul li a.delete-category,
+#sidebar ul li a.edit-category {
+	display: none;
+	position: absolute;
+	top: 16px;
+	height: 16px;
+	width: 16px;
+}
+#sidebar ul li a.delete-category {
+	right: 0;	
+}
+#sidebar ul li a.edit-category {
+	right: 20px;
 }
 
 form .row {
