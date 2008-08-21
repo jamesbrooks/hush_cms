@@ -38,6 +38,7 @@ Example
 
   ActionController::Routing::Routes.draw do |map|
     map.hush_cms_pages 'pages/*path'
+    map.hush_cms_posts 'posts/*path'
     map.hush_cms_admin 'admin/cms'
 
     ...
