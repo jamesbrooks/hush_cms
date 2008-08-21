@@ -4,15 +4,28 @@ Hush CMS
 A content management extension for Rails, unobtrusively adding static (page) and dynamic (post) content retrieval and management.
 
 
+Requirements
+=======
+
+tiny_mce (check out http://github.com/kete/tiny_mce)
+
+
 Example
 =======
 
-* Install Hush CMS
+* Install Hush CMS and TinyMCE
 
   script/plugin install git://github.com/JamesBrooks/hush_cms.git
+  script/plugin install git://github.com/kete/tiny_mce.git
+
+
+* Perform TinyMCE post-installation scripts installation
+
+  rake tiny_mce:scripts:install
 
 
 * Follow the instructions and edit config/hush.yml, as well as ensuring haml is installed
+
 
 * Generate migrations for CMS models (and migrate)
 
