@@ -14,3 +14,19 @@ function createErrorDiv(message) {
 	div.appear();
 	return div;
 }
+
+
+Event.observe(window, 'load', function() {
+	// Make children of elements marked .hoverable aquire .hover on :hover
+	$$('.hoverable > *').each(function (e) {
+		console.log(e);
+		
+		Event.observe(e, 'mouseover', function() {
+		  Element.addClassName(e, 'hover');
+		});  
+		
+		Event.observe(e, 'mouseout', function() {  
+		  Element.removeClassName(e, 'hover');  
+		});
+	});
+});

@@ -41,6 +41,16 @@ class HushCmsAdmin::PagesController < HushCmsAdminController
   end
   
   def update
+    if @page.update_attributes(params[:hush_cms_page])
+      redirect_to hush_cms_admin_page_url(@page)
+    else
+      @page_errors = []
+      @page.errors.each do |attribute, error|
+        @page_errors << "'#{attribute.gsub(/["']/) { |m| "\\#{m}" }}': '#{error.gsub(/["']/) { |m| "\\#{m}" }}'"
+      end
+      
+      render :action => 'edit'
+    end
   end
   
   def destroy
@@ -54,6 +64,16 @@ class HushCmsAdmin::PagesController < HushCmsAdminController
   def unpublish
     @page.unpublish!
     redirect_to hush_cms_admin_page_url(@page)
+  end
+  
+  def move_higher
+    @page.move_higher
+    redirect_to :back
+  end
+  
+  def move_lower
+    @page.move_lower
+    redirect_to :back
   end
   
   

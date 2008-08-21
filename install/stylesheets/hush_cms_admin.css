@@ -13,7 +13,7 @@ h1 {
 	padding: 20px;
 	min-width: 870px;
 	background-color: #fff;
-	border: 1px solid #C9C4AF;
+	border: 1px solid #c9c4af;
 	-moz-border-radius: 5px;
   -webkit-border-radius: 5px;
  	-opera-border-radius: 5px;
@@ -73,7 +73,8 @@ ul#navigation li#nav-posts a {
 }
 #sidebar a#sidebar-new-page,
 #sidebar a#sidebar-publish,
-#sidebar a#sidebar-unpublish {
+#sidebar a#sidebar-unpublish,
+#sidebar a#sidebar-edit-page {
 	display: block;
 	font-size: 0.8em;
 	color: #278FD5;
@@ -84,7 +85,8 @@ ul#navigation li#nav-posts a {
 }
 #sidebar a#sidebar-new-page:hover,
 #sidebar a#sidebar-publish:hover,
-#sidebar a#sidebar-unpublish:hover {
+#sidebar a#sidebar-unpublish:hover,
+#sidebar a#sidebar-edit-page:hover {
 	text-decoration: underline;
 }
 #sidebar a#sidebar-new-page {
@@ -95,6 +97,9 @@ ul#navigation li#nav-posts a {
 }
 #sidebar a#sidebar-unpublish {
 	background-image: url(../images/hush_cms/lightbulb_off.png);
+}
+#sidebar a#sidebar-edit-page {
+	background-image: url(../images/hush_cms/page_edit.png);	
 }
 
 #content {
@@ -126,6 +131,7 @@ ul#pages {
 	list-style: none;
 }
 ul#pages li {
+	position: relative;
 	padding: 10px 0;
 }
 ul#pages li a.title {
@@ -138,6 +144,30 @@ ul#pages li a.title:hover {
 ul#pages li .published {
 	font-size: 0.7em;
 	color: #666;
+}
+ul#pages li a.move-higher,
+ul#pages li a.move-lower {
+	display: none;
+	position: absolute;	
+	right: 0;
+	height: 5px;
+	width: 7px;
+	padding: 3px;
+}
+ul#pages li.hover a.move-higher,
+ul#pages li.hover a.move-lower {
+	display: block;
+}
+ul#pages li a.move-higher img,
+ul#pages li a.move-lower, img {
+	position: absolute;
+	border: none;
+}
+ul#pages li a.move-higher {
+	top: 12px;
+}
+ul#pages li a.move-lower {
+	bottom: 12px;
 }
 
 form .row {

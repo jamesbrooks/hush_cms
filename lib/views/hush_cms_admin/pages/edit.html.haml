@@ -1,0 +1,34 @@
+- @title = "Editing #{@page.title}"
+
+- content_for :sidebar do
+  - if @page.parent
+    = link_to 'New Sub-page', new_hush_cms_admin_page_path(:parent => @parent.id), :id => 'sidebar-new-page'
+    = render :partial => 'pages', :object => @page.parent.children
+  - else
+    = link_to 'New Page', new_hush_cms_admin_page_path, :id => 'sidebar-new-page'
+    = render :partial => 'pages', :object => HushCMS::Page.base_pages
+
+#breadcrumbs
+  = link_to('Base Pages', hush_cms_admin_pages_path)
+  
+  - if @page.parent
+    &raquo;
+    = @page.parent.breadcrumbs.map { |p| link_to p.title, hush_cms_admin_page_path(p) }.join(' &raquo; ')
+
+- form_for @page, :url => hush_cms_admin_page_path(@page) do |form|
+  .row
+    = form.label :title
+    = form.text_field :title
+  
+  .row
+    = form.label :parent_id, 'Parent'
+  
+  .row
+    = form.label :content
+    = form.text_area :content
+    
+  = submit_tag 'Update Page'
+
+- unless @page.errors.empty?
+  :javascript
+    markInputsWithErrors('hush_cms_page', {#{@page_errors.join(', ')}});

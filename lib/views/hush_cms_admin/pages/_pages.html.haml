@@ -1,5 +1,5 @@
 - unless pages.empty?
-  %ul#pages
+  %ul#pages.hoverable
     - pages.each do |page|
       %li{:id => "page-#{page.id}"}
         = link_to page.title, hush_cms_admin_page_path(page), :class => 'title'
@@ -7,5 +7,10 @@
           - if page.published?
             = "published #{page.published_at.to_s(:short)}"
           - else
-            not published  
+            not published
         
+        - unless page == pages.first
+          = link_to image_tag('hush_cms/bullet_arrow_up.png', :alt => 'Move Page Higher'), move_higher_hush_cms_admin_page_path(page), :method => :put, :class => 'move-higher'
+        
+        - unless page == pages.last
+          = link_to image_tag('hush_cms/bullet_arrow_down.png', :alt => 'Move Page Lower'), move_lower_hush_cms_admin_page_path(page), :method => :put, :class => 'move-lower'

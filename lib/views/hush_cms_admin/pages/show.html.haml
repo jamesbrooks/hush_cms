@@ -7,6 +7,7 @@
   - else
     = link_to 'Publish Page', publish_hush_cms_admin_page_path(@page), :method => :put, :id => 'sidebar-unpublish'
 
+  = link_to 'Edit Page', edit_hush_cms_admin_page_path(@page), :id => 'sidebar-edit-page'
   = link_to 'New Sub-page', new_hush_cms_admin_page_path(:parent => @page.id), :id => 'sidebar-new-page'
 
   = render :partial => 'pages', :object => @page.children
