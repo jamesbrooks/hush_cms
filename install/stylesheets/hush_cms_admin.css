@@ -159,7 +159,7 @@ ul#pages li.hover a.move-lower {
 	display: block;
 }
 ul#pages li a.move-higher img,
-ul#pages li a.move-lower, img {
+ul#pages li a.move-lower img {
 	position: absolute;
 	border: none;
 }

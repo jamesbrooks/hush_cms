@@ -43,6 +43,10 @@ class HushCMS::Page < ActiveRecord::Base
     breadcrumbs.map { |p| p.slug }.join('/')
   end
   
+  def possible_parents
+    HushCMS::Page.all.map { |p| [ p.path, p.id ] }.reject { |p| p.first.starts_with? path }
+  end
+  
   def self.base_pages
     find_all_by_parent_id nil, :order => 'position ASC'
   end
@@ -50,7 +54,7 @@ class HushCMS::Page < ActiveRecord::Base
   def self.locate(path, parent=nil)
     page = parent ? parent.children.find_by_slug(path.shift) : find_by_slug(path.shift)
     path.empty? ? page : locate(path, page)
-  end
+  end  
   
   
 private

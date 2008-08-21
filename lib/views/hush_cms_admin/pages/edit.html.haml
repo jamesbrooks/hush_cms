@@ -1,8 +1,9 @@
 - @title = "Editing #{@page.title}"
+- @link = hush_cms_page_url(@page.path)
 
 - content_for :sidebar do
   - if @page.parent
-    = link_to 'New Sub-page', new_hush_cms_admin_page_path(:parent => @parent.id), :id => 'sidebar-new-page'
+    = link_to 'New Sub-page', new_hush_cms_admin_page_path(:parent => @page.parent.id), :id => 'sidebar-new-page'
     = render :partial => 'pages', :object => @page.parent.children
   - else
     = link_to 'New Page', new_hush_cms_admin_page_path, :id => 'sidebar-new-page'
@@ -10,10 +11,8 @@
 
 #breadcrumbs
   = link_to('Base Pages', hush_cms_admin_pages_path)
-  
-  - if @page.parent
-    &raquo;
-    = @page.parent.breadcrumbs.map { |p| link_to p.title, hush_cms_admin_page_path(p) }.join(' &raquo; ')
+  &raquo;
+  = @page.breadcrumbs.map { |p| link_to p.title, hush_cms_admin_page_path(p) }.join(' &raquo; ')
 
 - form_for @page, :url => hush_cms_admin_page_path(@page) do |form|
   .row
@@ -22,6 +21,7 @@
   
   .row
     = form.label :parent_id, 'Parent'
+    = form.select :parent_id, @page.possible_parents, :include_blank => true
   
   .row
     = form.label :content

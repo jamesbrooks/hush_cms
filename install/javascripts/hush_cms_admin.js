@@ -18,9 +18,7 @@ function createErrorDiv(message) {
 
 Event.observe(window, 'load', function() {
 	// Make children of elements marked .hoverable aquire .hover on :hover
-	$$('.hoverable > *').each(function (e) {
-		console.log(e);
-		
+	$$('.hoverable > *').each(function (e) {	
 		Event.observe(e, 'mouseover', function() {
 		  Element.addClassName(e, 'hover');
 		});  

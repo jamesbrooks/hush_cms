@@ -7,7 +7,7 @@ module ActionController
         end
         
         def hush_cms_admin(path)
-          named_route 'hush_cms_admin', path, :controller => 'hush_cms_admin', :action => 'index'
+          named_route 'hush_cms_admin', path, :controller => 'hush_cms_admin/pages', :action => 'index'
           
           namespace :hush_cms_admin, :path_prefix => path do |a|
             a.resources :categories
