@@ -74,7 +74,8 @@ ul#navigation li#nav-posts a {
 #sidebar a#sidebar-new-page,
 #sidebar a#sidebar-publish,
 #sidebar a#sidebar-unpublish,
-#sidebar a#sidebar-edit-page {
+#sidebar a#sidebar-edit-page,
+#sidebar a#sidebar-new-category {
 	display: block;
 	font-size: 0.8em;
 	color: #278FD5;
@@ -86,7 +87,8 @@ ul#navigation li#nav-posts a {
 #sidebar a#sidebar-new-page:hover,
 #sidebar a#sidebar-publish:hover,
 #sidebar a#sidebar-unpublish:hover,
-#sidebar a#sidebar-edit-page:hover {
+#sidebar a#sidebar-edit-page:hover,
+#sidebar a#sidebar-new-category:hover {
 	text-decoration: underline;
 }
 #sidebar a#sidebar-new-page {
@@ -100,6 +102,9 @@ ul#navigation li#nav-posts a {
 }
 #sidebar a#sidebar-edit-page {
 	background-image: url(../images/hush_cms/page_edit.png);	
+}
+#sidebar a#sidebar-new-category {
+	background-image: url(../images/hush_cms/newspaper_add.png);
 }
 
 #content {
@@ -125,28 +130,29 @@ ul#navigation li#nav-posts a {
 	font-weight: bold;
 }
 
-ul#pages {
+#sidebar ul {
 	margin: 10px 0 0;
 	padding: 0;
 	list-style: none;
 }
-ul#pages li {
+#sidebar ul li {
 	position: relative;
 	padding: 10px 0;
 }
-ul#pages li a.title {
+#sidebar ul li a.title {
 	color: #222;
 	text-decoration: none;
 }
-ul#pages li a.title:hover {
+#sidebar ul li a.title:hover {
 	text-decoration: underline;
 }
-ul#pages li .published {
+#sidebar ul li span {
+	display: block;
 	font-size: 0.7em;
 	color: #666;
 }
-ul#pages li a.move-higher,
-ul#pages li a.move-lower {
+#sidebar ul li a.move-higher,
+#sidebar ul li a.move-lower {
 	display: none;
 	position: absolute;	
 	right: 0;
@@ -154,19 +160,19 @@ ul#pages li a.move-lower {
 	width: 7px;
 	padding: 3px;
 }
-ul#pages li.hover a.move-higher,
-ul#pages li.hover a.move-lower {
+#sidebar ul li.hover a.move-higher,
+#sidebar ul li.hover a.move-lower {
 	display: block;
 }
-ul#pages li a.move-higher img,
-ul#pages li a.move-lower img {
+#sidebar ul li a.move-higher img,
+#sidebar ul li a.move-lower img {
 	position: absolute;
 	border: none;
 }
-ul#pages li a.move-higher {
+#sidebar ul li a.move-higher {
 	top: 12px;
 }
-ul#pages li a.move-lower {
+#sidebar ul li a.move-lower {
 	bottom: 12px;
 }
 

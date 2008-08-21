@@ -1,5 +1,5 @@
 class HushCmsAdmin::PostsController < HushCmsAdminController
-  before_filter :find_post, :only => [ :show, :edit, :update, :destroy ]
+  before_filter :find_post, :except => [ :index, :new, :create ]
   
   
   def index

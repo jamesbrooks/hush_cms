@@ -1,0 +1,8 @@
+- unless categories.empty?
+  %ul#categories
+    - categories.each do |category|
+      %li{:id => "category-#{category.id}"}
+        = link_to category.name, hush_cms_admin_category_path(category), :class => 'title'
+        %span
+          = pluralize(category.posts.count, 'item')
+          = ", #{category.posts.unpublished.count} un-published" if category.posts.unpublished.count > 0

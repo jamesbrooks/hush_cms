@@ -8,6 +8,14 @@ class HushCMS::Category < ActiveRecord::Base
   
   before_validation :assign_slug
   
+  def to_s
+    name
+  end
+  
+  def to_param
+    [id, name].join(' ').slugify
+  end
+  
   
 private
   def assign_slug

@@ -5,6 +5,7 @@ class HushCMS::Post < ActiveRecord::Base
   has_many :comments, :class_name => 'HushCMS::Comment', :dependent => :destroy
   
   named_scope :published, :conditions => 'published_at IS NOT NULL'
+  named_scope :unpublished, :conditions => 'published_at IS NULL'
   
   validates_presence_of :title, :author, :category
   validates_presence_of :slug, :if => :published?
