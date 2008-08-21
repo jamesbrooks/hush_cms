@@ -12,7 +12,7 @@ class HushCMS::Page < ActiveRecord::Base
   validates_presence_of :title, :slug
   validates_uniqueness_of :slug, :scope => :parent_id
 
-  before_validation :assign_slug_if_absent
+  before_validation :assign_slug
     
   
   def to_s
@@ -54,9 +54,9 @@ class HushCMS::Page < ActiveRecord::Base
   
   
 private
-  def assign_slug_if_absent
+  def assign_slug
     if title?
-      self.slug = title.slugify unless slug?
+      self.slug = title.slugify
       assign_unique_slug if slug_taken?
     end
   end
