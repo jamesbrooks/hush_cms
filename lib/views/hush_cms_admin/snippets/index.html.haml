@@ -1,0 +1,5 @@
+- @title = 'Snippets'
+
+- content_for :sidebar do
+  = link_to 'New Snippet', new_hush_cms_admin_snippet_path, :id => 'sidebar-new-snippet'
+  = render :partial => 'snippets', :object => @snippets

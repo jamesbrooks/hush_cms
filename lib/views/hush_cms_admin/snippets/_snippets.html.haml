@@ -1,0 +1,8 @@
+- unless snippets.empty?
+  %ul#snippets.hoverable
+    - snippets.each do |snippet|
+      %li{:id => "snippet-#{snippet.id}"}
+        = link_to snippet.name, edit_hush_cms_admin_snippet_path(snippet), :class => 'title'
+        %span= "last updated #{snippet.updated_at.to_s(:short)}"
+        
+        = link_to image_tag('hush_cms/note_delete.png', :alt => 'Delete Snippet'), hush_cms_admin_snippet_path(snippet), :method => :delete, :class => 'delete-snippet', :confirm => 'Are you sure?'

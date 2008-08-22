@@ -5,7 +5,7 @@
   = render :partial => 'categories', :object => @categories
 
 #breadcrumbs
-  = link_to('All Categories', hush_cms_admin_categories_path)
+  = link_to 'All Categories', hush_cms_admin_categories_path
 
 - form_for @category, :url => hush_cms_admin_categories_path do |form|
   .row

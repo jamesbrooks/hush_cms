@@ -18,6 +18,7 @@ class CreateHushCmsComponents < ActiveRecord::Migration
       t.string :title, :author, :slug
       t.text :content
       t.datetime :published_at
+      t.timestamps
     end
     
     create_table :hush_cms_comments do |t|
@@ -25,6 +26,12 @@ class CreateHushCmsComponents < ActiveRecord::Migration
       t.string :naem, :email
       t.text :content
       t.boolean :approved, :default => false
+    end
+    
+    create_table :hush_cms_snippets do |t|
+      t.string :name
+      t.text :content
+      t.timestamps
     end
     
     # TODO: Add appropriate indexes
@@ -35,5 +42,6 @@ class CreateHushCmsComponents < ActiveRecord::Migration
     drop_table :hush_cms_categories
     drop_table :hush_cms_posts
     drop_table :hush_cms_comments
+    drop_table :hush_cms_snippets
   end
 end

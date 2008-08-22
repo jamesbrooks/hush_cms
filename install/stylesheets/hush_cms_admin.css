@@ -47,6 +47,9 @@ ul#navigation li#nav-pages a {
 ul#navigation li#nav-posts a {
 	background-image: url(../images/hush_cms/newspaper.png);	
 }
+ul#navigation li#nav-snippets a {
+	background-image: url(../images/hush_cms/note.png);	
+}
 
 #link {
 	height: 16px;
@@ -77,7 +80,8 @@ ul#navigation li#nav-posts a {
 #sidebar a#sidebar-edit-page,
 #sidebar a#sidebar-new-category,
 #sidebar a#sidebar-new-post,
-#sidebar a#sidebar-edit-post {
+#sidebar a#sidebar-edit-post,
+#sidebar a#sidebar-new-snippet {
 	display: block;
 	font-size: 0.8em;
 	color: #278FD5;
@@ -92,7 +96,8 @@ ul#navigation li#nav-posts a {
 #sidebar a#sidebar-edit-page:hover,
 #sidebar a#sidebar-new-category:hover,
 #sidebar a#sidebar-new-post:hover,
-#sidebar a#sidebar-edit-post:hover {
+#sidebar a#sidebar-edit-post:hover,
+#sidebar a#sidebar-new-snippet:hover {
 	text-decoration: underline;
 }
 #sidebar a#sidebar-new-page {
@@ -113,6 +118,9 @@ ul#navigation li#nav-posts a {
 }
 #sidebar a#sidebar-edit-post {
 	background-image: url(../images/hush_cms/pencil.png);
+}
+#sidebar a#sidebar-new-snippet {
+	background-image: url(../images/hush_cms/note_add.png);
 }
 
 #content {
@@ -145,7 +153,7 @@ ul#navigation li#nav-posts a {
 }
 #sidebar ul li {
 	position: relative;
-	padding: 10px 0;
+	padding: 10px 33px 10px 0;
 }
 #sidebar ul li a.title {
 	color: #222;
@@ -171,13 +179,17 @@ ul#navigation li#nav-posts a {
 #sidebar ul li.hover a.move-higher,
 #sidebar ul li.hover a.move-lower,
 #sidebar ul li.hover a.delete-category,
-#sidebar ul li.hover a.edit-category {
+#sidebar ul li.hover a.edit-category,
+#sidebar ul li.hover a.delete-snippet,
+#sidebar ul li.hover a.edit-snippet {
 	display: block;
 }
 #sidebar ul li a.move-higher img,
 #sidebar ul li a.move-lower img,
 #sidebar ul li a.delete-category img,
-#sidebar ul li a.edit-category img {
+#sidebar ul li a.edit-category img,
+#sidebar ul li a.delete-snippet img,
+#sidebar ul li a.edit-snippet img {
 	position: absolute;
 	border: none;
 }
@@ -188,18 +200,21 @@ ul#navigation li#nav-posts a {
 	bottom: 12px;
 }
 #sidebar ul li a.delete-category,
-#sidebar ul li a.edit-category {
+#sidebar ul li a.edit-category,
+#sidebar ul li a.delete-snippet,
+#sidebar ul li a.edit-snippet {
 	display: none;
 	position: absolute;
 	top: 16px;
 	height: 16px;
 	width: 16px;
 }
-#sidebar ul li a.delete-category {
+#sidebar ul li a.delete-category,
+#sidebar ul li a.delete-snippet {
 	right: 0;	
 }
 #sidebar ul li a.edit-category {
-	right: 20px;
+	right: 18px;
 }
 
 form .row {

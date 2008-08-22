@@ -1,0 +1,16 @@
+- @title = "Editing #{@snippet.name}"
+
+- content_for :sidebar do
+  = link_to 'New Snippet', new_hush_cms_admin_snippet_path, :id => 'sidebar-new-snippet'
+  = render :partial => 'snippets', :object => @snippets
+
+- form_for @snippet, :url => hush_cms_admin_snippet_path(@snippet) do |form|
+  .row
+    = form.label :name
+    = form.text_field :name
+    
+  .row
+    = form.label :content
+    = form.text_area :content
+
+  = submit_tag 'Update Snippet'

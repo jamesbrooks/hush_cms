@@ -21,6 +21,7 @@ module ActionController
             end
             
             a.resources :pages, :member => { :publish => :put, :unpublish => :put, :move_higher => :put, :move_lower => :put }
+            a.resources :snippets
           end
         end
       end
