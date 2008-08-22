@@ -1,5 +1,5 @@
-- @title = @page.title
-- @link = hush_cms_page_url(@page.path)
+- title @page.title
+- add_link hush_cms_page_url(@page.path)
 
 - content_for :sidebar do
   - if @page.published?

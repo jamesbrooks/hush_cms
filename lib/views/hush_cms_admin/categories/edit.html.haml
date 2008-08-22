@@ -1,4 +1,4 @@
-- @title = "Editing #{@category.name}"
+- title "Editing #{@category.name}"
 
 - content_for :sidebar do
   = link_to 'New Category', new_hush_cms_admin_category_path, :id => 'sidebar-new-category'
@@ -8,5 +8,17 @@
   .row
     = form.label :name
     = form.text_field :name
+    
+  .row    
+    %span
+      = form.check_box :has_comments
+      = image_tag 'hush_cms/comments.png'
+      Comments
+  
+  
+    %span
+      = form.check_box :has_feed
+      = image_tag 'hush_cms/feed.png'
+      Feed
 
   = submit_tag 'Update Category'

@@ -37,8 +37,8 @@ Example
 * Add a route for CMS pages and admin in config/routes.rb, e.g.
 
   ActionController::Routing::Routes.draw do |map|
-    map.hush_cms_pages 'pages/*path'
-    map.hush_cms_posts 'posts/*path'
+    map.hush_cms_pages 'pages/'
+    map.hush_cms_posts 'posts/'
     map.hush_cms_admin 'admin/cms'
 
     ...

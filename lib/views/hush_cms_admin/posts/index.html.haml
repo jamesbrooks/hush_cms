@@ -1,4 +1,6 @@
-- @title = @category.name
+- title @category.name
+- add_link hush_cms_posts_url(@category.slug)
+- add_link hush_cms_posts_url(@category.slug, :rss), :feed
 
 - content_for :sidebar do
   = link_to 'New Post', new_hush_cms_admin_category_post_path(@category), :id => 'sidebar-new-post'

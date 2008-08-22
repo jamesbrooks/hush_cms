@@ -10,7 +10,8 @@ class CreateHushCmsComponents < ActiveRecord::Migration
     
     create_table :hush_cms_categories do |t|
       t.string :name, :slug
-      t.boolean :comments_allowed, :default => false
+      t.boolean :has_comments, :default => false
+      t.boolean :has_feed, :default => false
     end
     
     create_table :hush_cms_posts do |t|
@@ -23,7 +24,7 @@ class CreateHushCmsComponents < ActiveRecord::Migration
     
     create_table :hush_cms_comments do |t|
       t.integer :post_id
-      t.string :naem, :email
+      t.string :name, :email
       t.text :content
       t.boolean :approved, :default => false
     end

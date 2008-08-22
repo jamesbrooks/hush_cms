@@ -17,9 +17,12 @@
         %li#nav-snippets= link_to 'Snippets', hush_cms_admin_snippets_path
       
       %h1= @title
-      #link
-        = link_to(@link, @link) if @link
-      
+      #links
+        - if @links && !@links.empty?
+          %ul
+            - @links.each do |type, link|
+              %li{:class => type}= link_to(link, link)
+              
       #sidebar
         = yield :sidebar
       

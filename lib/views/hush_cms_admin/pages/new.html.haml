@@ -1,4 +1,4 @@
-- @title = @parent ? "New Sub-page for #{@parent.title}" : 'New Page'
+- title @parent ? "New Sub-page for #{@parent.title}" : 'New Page'
 
 - content_for :sidebar do
   - if @parent

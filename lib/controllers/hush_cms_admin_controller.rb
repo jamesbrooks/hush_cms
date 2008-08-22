@@ -1,6 +1,7 @@
 class HushCmsAdminController < ApplicationController
   layout 'hush_cms_admin'
   before_filter :authenticate
+  helper :hush_cms_admin
   
   uses_tiny_mce(:options => {:theme => 'advanced',
     :browsers => %w{msie gecko},

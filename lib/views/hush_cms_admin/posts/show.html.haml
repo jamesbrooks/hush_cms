@@ -1,4 +1,5 @@
-- @title = "#{@category.name} - #{@post.title}"
+- title "#{@category.name} - #{@post.title}"
+- add_link hush_cms_post_url(:category => @category.slug, :year => @post.published_at.year, :month => @post.published_at.month, :day => @post.published_at.day, :slug => @post.slug) if @post.published?
 
 - content_for :sidebar do
   - if @post.published?
