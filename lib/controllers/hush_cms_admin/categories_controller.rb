@@ -29,7 +29,7 @@ class HushCmsAdmin::CategoriesController < HushCmsAdminController
   
   def update
     if @category.update_attributes(params[:hush_cms_category])
-      redirect_to hush_cms_admin_categories_url
+      redirect_to hush_cms_admin_category_posts_path(@category)
     else
       prepare_error_messages_for_javascript @category
       render :action => 'edit'

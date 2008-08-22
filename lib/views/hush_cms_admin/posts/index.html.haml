@@ -1,8 +1,9 @@
 - title @category.name
 - add_link hush_cms_posts_url(@category.slug)
-- add_link hush_cms_posts_url(@category.slug, :rss), :feed
+- add_link hush_cms_posts_url(@category.slug, :rss), :feed if @category.has_feed?
 
 - content_for :sidebar do
+  = link_to 'Edit Category', edit_hush_cms_admin_category_path(@category), :id => 'sidebar-edit-category'
   = link_to 'New Post', new_hush_cms_admin_category_post_path(@category), :id => 'sidebar-new-post'
   = render :partial => 'posts', :object => @posts
 
