@@ -27,5 +27,9 @@
         
       %div{:style => 'clear: left'}
   
-      /
-        = Time.now
+    - if @js_model_with_errors
+      :javascript
+        markInputsWithErrors('#{@js_model_with_errors}', {#{@js_model_errors.join(', ')}});
+    
+    /
+      = Time.now

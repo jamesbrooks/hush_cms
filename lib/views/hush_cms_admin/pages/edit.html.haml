@@ -28,7 +28,3 @@
     = form.text_area :content
     
   = submit_tag 'Update Page'
-
-- unless @page.errors.empty?
-  :javascript
-    markInputsWithErrors('hush_cms_page', {#{@page_errors.join(', ')}});

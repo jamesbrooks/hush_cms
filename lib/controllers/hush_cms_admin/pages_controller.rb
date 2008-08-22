@@ -19,20 +19,19 @@ class HushCmsAdmin::PagesController < HushCmsAdminController
     end
   end
   
-  def create
-    @parent = HushCMS::Page.find(params[:hush_cms_page][:parent]) if params[:hush_cms_page][:parent]
+  def create  
+    if parent_id = params[:hush_cms_page].delete(:parent_page)
+      @parent = HushCMS::Page.find(parent_id)
+    end
+    
     @page = @parent ? @parent.children.build(params[:hush_cms_page]) : HushCMS::Page.new(params[:hush_cms_page])
     
     if @page.save
       redirect_to hush_cms_admin_page_url(@page)
     else
-      @pages = HushCMS::Page.base_pages unless params[:hush_cms_page][:parent]
-
-      @page_errors = []
-      @page.errors.each do |attribute, error|
-        @page_errors << "'#{attribute.gsub(/["']/) { |m| "\\#{m}" }}': '#{error.gsub(/["']/) { |m| "\\#{m}" }}'"
-      end
+      @pages = HushCMS::Page.base_pages unless @parent
       
+      prepare_error_messages_for_javascript @page
       render :action => 'new'
     end
   end
@@ -44,11 +43,7 @@ class HushCmsAdmin::PagesController < HushCmsAdminController
     if @page.update_attributes(params[:hush_cms_page])
       redirect_to hush_cms_admin_page_url(@page)
     else
-      @page_errors = []
-      @page.errors.each do |attribute, error|
-        @page_errors << "'#{attribute.gsub(/["']/) { |m| "\\#{m}" }}': '#{error.gsub(/["']/) { |m| "\\#{m}" }}'"
-      end
-      
+      prepare_error_messages_for_javascript @page      
       render :action => 'edit'
     end
   end

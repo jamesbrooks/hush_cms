@@ -20,6 +20,16 @@ class HushCmsAdminController < ApplicationController
   end
   
 
+protected
+  def prepare_error_messages_for_javascript(obj)
+    @js_model_with_errors = obj.class.table_name.singularize
+    @js_model_errors = []
+    
+    obj.errors.each do |attribute, error|
+      @js_model_errors << "'#{attribute.gsub(/["']/) { |m| "\\#{m}" }}': '#{error.gsub(/["']/) { |m| "\\#{m}" }}'"
+    end
+  end
+
 private
   def authenticate    
     authenticate_or_request_with_http_basic('Hush Administration') do |username, password|

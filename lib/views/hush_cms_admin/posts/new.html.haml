@@ -23,7 +23,3 @@
     = form.text_area :content
      
   = submit_tag 'Create Post'
-
-- unless @post.errors.empty?
-  :javascript
-    markInputsWithErrors('hush_cms_post', {#{@post_errors.join(', ')}});

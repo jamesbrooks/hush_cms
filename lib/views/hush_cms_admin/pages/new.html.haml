@@ -16,7 +16,7 @@
     = @parent.breadcrumbs.map { |p| link_to p.title, hush_cms_admin_page_path(p) }.join(' &raquo; ')
 
 - form_for @page, :url => hush_cms_admin_pages_path do |form|
-  = form.hidden_field :parent, :value => @parent.id if @parent
+  = form.hidden_field :parent_page, :value => @parent.id if @parent
 
   .row
     = form.label :title
@@ -27,7 +27,3 @@
     = form.text_area :content
     
   = submit_tag 'Create Page'
-
-- unless @page.errors.empty?
-  :javascript
-    markInputsWithErrors('hush_cms_page', {#{@page_errors.join(', ')}});

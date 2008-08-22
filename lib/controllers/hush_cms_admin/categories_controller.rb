@@ -19,11 +19,7 @@ class HushCmsAdmin::CategoriesController < HushCmsAdminController
     if @category.save
       redirect_to hush_cms_admin_category_posts_path(@category)
     else
-      @category_errors = []
-      @category.errors.each do |attribute, error|
-        @category_errors << "'#{attribute.gsub(/["']/) { |m| "\\#{m}" }}': '#{error.gsub(/["']/) { |m| "\\#{m}" }}'"
-      end
-      
+      prepare_error_messages_for_javascript @category
       render :action => 'new'
     end
   end
@@ -35,11 +31,7 @@ class HushCmsAdmin::CategoriesController < HushCmsAdminController
     if @category.update_attributes(params[:hush_cms_category])
       redirect_to hush_cms_admin_categories_url
     else
-      @category_errors = []
-      @category.errors.each do |attribute, error|
-        @category_errors << "'#{attribute.gsub(/["']/) { |m| "\\#{m}" }}': '#{error.gsub(/["']/) { |m| "\\#{m}" }}'"
-      end
-      
+      prepare_error_messages_for_javascript @category
       render :action => 'edit'
     end
   end

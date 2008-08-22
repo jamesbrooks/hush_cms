@@ -13,7 +13,3 @@
     = form.text_field :name
     
   = submit_tag 'Create Category'
-
-- unless @category.errors.empty?
-  :javascript
-    markInputsWithErrors('hush_cms_category', {#{@category_errors.join(', ')}});
