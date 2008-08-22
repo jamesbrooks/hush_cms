@@ -16,7 +16,7 @@ require 'extensions/acts_as_list'
 
 module HushCMS
   class << self
-    attr_reader :configuration
+    attr_accessor :configuration
     
     def load
       %w( models controllers controllers/admin helpers ).each do |dir|
@@ -36,6 +36,8 @@ module HushCMS
         raise ConfigurationException.new("config/hush.yml doesn't exist")
       end
       
+      ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge! :hush_date => "%b %d, %Y"    
+      
       validate_configuration
     end
     
@@ -47,6 +49,17 @@ module HushCMS
       
       unless configuration['administration'] && configuration['administration']['username'] && configuration['administration']['password']
         raise ConfigurationException.new("config/hush.yml doesn't define username and password under administration")
+      end
+      
+      configuration['post_date_format'] = configuration['post_date_format'] ? configuration['post_date_format'].to_sym : :hush_date
+      
+      if configuration['paginate_options']
+        configuration['paginate_options'] = configuration['paginate_options'].inject({}) do |options, (key, value)|
+          options[key.to_sym] = value
+          options
+        end
+      else
+        configuration['paginate_options'] = { :per_page => 10 }
       end
     end
   end

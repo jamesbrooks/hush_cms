@@ -5,7 +5,7 @@ class HushCmsPostsController < ApplicationController
   def index
     # Paginate with will_paginate if it's loaded
     paginate_method = if defined?(WillPaginate)
-      [ :paginate, { :per_page => 10, :page => params[:page] } ]
+      [ :paginate, HushCMS.configuration['paginate_options'].merge({:page => params[:page]}) ]
     else
       [ :all ]
     end

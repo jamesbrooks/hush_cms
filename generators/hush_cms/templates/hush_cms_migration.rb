@@ -28,6 +28,7 @@ class CreateHushCmsComponents < ActiveRecord::Migration
       t.string :name, :email
       t.text :content
       t.boolean :approved, :default => false
+      t.timestamps
     end
     
     create_table :hush_cms_snippets do |t|

@@ -1,0 +1,16 @@
+.post
+  .title= @post.title
+  .author= @post.author
+  .published_at= @post.published_at.to_s(HushCMS.configuration['post_date_format'])
+  .post-content= @post.content
+  
+  - if @category.has_comments?
+    .comments
+      .count= pluralize(@post.comments.approved.count, 'Comment')
+    
+      - unless @post.comments.approved.empty?
+        %ul
+          - @post.comments.approved.each do |comment|
+            %li
+              .name= comment.name
+              .content= comment.content

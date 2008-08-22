@@ -1,0 +1,18 @@
+#posts
+  .category= @category.name
+  .description= @category.description
+  .feed= link_to image_tag('hush_cms/feed.png'), hush_cms_posts_path(@category.slug, :rss)
+
+
+  - @posts.each do |post|
+    .post
+      .title= link_to post.title, hush_cms_post_url(:category => @category.slug, :year => post.published_at.year, :month => post.published_at.month, :day => post.published_at.day, :slug => post.slug)
+      .author= post.author
+      .published_at= post.published_at.to_s(HushCMS.configuration['post_date_format'])
+      .post-content= post.content
+      
+      - if @category.has_comments?
+        = link_to((post.comments.empty? ? 'Leave a Comment' : pluralize(post.comments.count, 'Comment')), hush_cms_post_url(:category => @category.slug, :year => post.published_at.year, :month => post.published_at.month, :day => post.published_at.day, :slug => post.slug) + '#comments')
+
+        
+  = will_paginate @posts if defined? WillPaginate
