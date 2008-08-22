@@ -37,6 +37,8 @@ class HushCmsAdmin::PostsController < HushCmsAdminController
   end
   
   def destroy
+    @post.destroy
+    redirect_to hush_cms_admin_category_posts_url(@category)
   end
   
   def publish

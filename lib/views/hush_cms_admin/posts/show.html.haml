@@ -6,7 +6,8 @@
     = link_to 'Un-publish Post', unpublish_hush_cms_admin_category_post_path(@category, @post), :method => :put, :id => 'sidebar-unpublish'
   - else
     = link_to 'Publish Post', publish_hush_cms_admin_category_post_path(@category, @post), :method => :put, :id => 'sidebar-publish'
-    
+
+  = link_to 'Delete Post', hush_cms_admin_category_post_path(@category, @post), :method => :delete, :confirm => 'Are you sure?', :id => 'sidebar-delete-post'
   = link_to 'Edit Post', edit_hush_cms_admin_category_post_path(@category, @post), :id => 'sidebar-edit-post'
 
 #breadcrumbs

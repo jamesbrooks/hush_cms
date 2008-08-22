@@ -101,6 +101,7 @@ ul#navigation li#nav-snippets a {
 #sidebar a#sidebar-edit-category,
 #sidebar a#sidebar-new-post,
 #sidebar a#sidebar-edit-post,
+#sidebar a#sidebar-delete-post,
 #sidebar a#sidebar-new-snippet {
 	display: block;
 	font-size: 0.8em;
@@ -118,6 +119,7 @@ ul#navigation li#nav-snippets a {
 #sidebar a#sidebar-edit-category:hover,
 #sidebar a#sidebar-new-post:hover,
 #sidebar a#sidebar-edit-post:hover,
+#sidebar a#sidebar-delete-post:hover,
 #sidebar a#sidebar-new-snippet:hover {
 	text-decoration: underline;
 }
@@ -143,6 +145,9 @@ ul#navigation li#nav-snippets a {
 }
 #sidebar a#sidebar-new-snippet {
 	background-image: url(../images/hush_cms/note_add.png);
+}
+#sidebar a#sidebar-delete-post {
+	background-image: url(../images/hush_cms/newspaper_delete.png);
 }
 
 #content {
