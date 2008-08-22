@@ -10,6 +10,7 @@ class CreateHushCmsComponents < ActiveRecord::Migration
     
     create_table :hush_cms_categories do |t|
       t.string :name, :slug
+      t.text :description
       t.boolean :has_comments, :default => false
       t.boolean :has_feed, :default => false
     end

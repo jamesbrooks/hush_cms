@@ -6,6 +6,9 @@ else
   raise Exception.new("Hush CMS requires 'haml' to be installed:  gem install haml")
 end
 
+# Load will_paginate if possible
+require 'will_paginate'
+
 require 'extensions/string'
 require 'extensions/mapper'
 require 'extensions/acts_as_list'

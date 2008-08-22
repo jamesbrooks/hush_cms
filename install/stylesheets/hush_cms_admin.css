@@ -1,6 +1,8 @@
 body {
 	margin: 0;
 	background-color: #FFF8DD;
+}
+body, textarea {
 	font-family: Helvetica;
 }
 
@@ -259,12 +261,19 @@ form .row input:focus {
 form .row textarea {
 	width: 600px;
 }
-form .row span {
+form .row textarea.simple {
+	border: 1px solid #ccc;
+	height: 60px;
+	width: 592px;
+	padding: 5px;
+	font-size: 0.8em;
+	-moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+ 	-opera-border-radius: 5px;
+}
+form .row > span {
 	display: block;
 	font-size: 0.8em;
-}
-form .row span input {
-	margin: 0;
 }
 form .fieldWithErrors {
 	position: relative;

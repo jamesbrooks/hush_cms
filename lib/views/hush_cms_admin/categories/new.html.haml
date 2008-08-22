@@ -12,6 +12,10 @@
     = form.label :name
     = form.text_field :name
     
+  .row
+    = form.label :description
+    = form.text_area :description, :class => 'simple'
+    
   .row    
     %span
       = form.check_box :has_comments

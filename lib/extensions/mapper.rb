@@ -10,6 +10,7 @@ module ActionController
           post_component_order = options[:order] || [:category, :year, :month, :day, :slug ]
           
           named_route 'hush_cms_posts', "#{path}/:category/:format", :controller => 'hush_cms_posts', :action => 'index', :defaults => { :format => 'html' }
+          named_route 'hush_cms_posts_page', "#{path}/:category/page/:page", :controller => 'hush_cms_posts', :action => 'index', :defaults => { :page => 1 }
           named_route 'hush_cms_post', "#{path}/#{post_component_order.map { |c| ":#{c}" }.join('/')}", :controller => 'hush_cms_posts', :action => 'show'
         end
         
