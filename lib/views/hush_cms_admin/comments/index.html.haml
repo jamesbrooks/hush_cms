@@ -1,0 +1,19 @@
+- title 'Comments'
+
+- content_for :sidebar do
+  %strong= pluralize HushCMS::Comment.unapproved.count, 'unapproved comment'
+
+- @comments.each do |post, comments|
+  %h3= post.title
+  
+  %ul.comments
+    - comments.each do |comment|
+      %li
+        .moderate
+          = link_to image_tag('hush_cms/accept.png'), approve_hush_cms_admin_comment_path(comment), :method => :put
+          = link_to image_tag('hush_cms/delete.png'), unapprove_hush_cms_admin_comment_path(comment), :method => :put, :confirm => 'Are you sure?'
+        .author
+          = comment.name
+          %span= "(#{comment.email})"
+        
+        %p= comment.content

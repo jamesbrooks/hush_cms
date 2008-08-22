@@ -14,6 +14,9 @@ class HushCmsPostsController < ApplicationController
   end
   
   def show
+    if request.post?
+      @comment = @post.comments.create(params[:comment])
+    end
   end
   
 

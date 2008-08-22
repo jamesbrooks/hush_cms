@@ -18,11 +18,10 @@ module ActionController
           
           namespace :hush_cms_admin, :path_prefix => path do |a|
             a.resources :categories do |c|
-              c.resources :posts, :member => { :publish => :put, :unpublish => :put } do |p|
-                p.resources :comments
-              end
+              c.resources :posts, :member => { :publish => :put, :unpublish => :put }
             end
             
+            a.resources :comments, :member => { :approve => :put, :unapprove => :put }
             a.resources :pages, :member => { :publish => :put, :unpublish => :put, :move_higher => :put, :move_lower => :put }
             a.resources :snippets
           end

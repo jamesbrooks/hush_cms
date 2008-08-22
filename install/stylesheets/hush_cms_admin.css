@@ -6,7 +6,7 @@ body, textarea {
 	font-family: Helvetica;
 }
 
-h1 {
+h1, h3 {
 	margin: 0
 }
 
@@ -51,6 +51,9 @@ ul#navigation li#nav-posts a {
 }
 ul#navigation li#nav-snippets a {
 	background-image: url(../images/hush_cms/note.png);	
+}
+ul#navigation li#nav-comments a {
+	background-image: url(../images/hush_cms/comments.png);	
 }
 
 #links {
@@ -297,4 +300,33 @@ form .fieldWithErrors .input-error {
 	-moz-border-radius:5px;
 	-webkit-border-radius: 5px;
  	-opera-border-radius: 5px;
+}
+
+ul.comments {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+ul.comments li {
+	border-bottom: 1px dotted #C9C4AF;
+	padding: 10px 0;
+}
+ul.comments li .moderate {
+	float: right;
+}
+ul.comments li .moderate a img {
+	border: none;
+}
+ul.comments li .author {
+	font-weight: bold;
+}
+ul.comments li .author span {
+	font-weight: normal;
+	font-size: 0.8em;
+	color: #555;
+}
+ul.comments li p {
+	margin: 5px 0 0 0;
+	font-size: 0.8em;
+	color: #846F41;
 }

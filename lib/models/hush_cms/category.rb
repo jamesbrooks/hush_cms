@@ -1,7 +1,7 @@
 class HushCMS::Category < ActiveRecord::Base
   set_table_name 'hush_cms_categories'
   
-  has_many :posts, :dependent => :destroy, :order => 'published_at DESC'
+  has_many :posts, :class_name => 'HushCMS::Post', :dependent => :destroy, :order => 'published_at DESC'
   
   validates_presence_of :name, :slug
   validates_uniqueness_of :slug
@@ -14,6 +14,10 @@ class HushCMS::Category < ActiveRecord::Base
   
   def to_param
     [id, name].join(' ').slugify
+  end
+  
+  def self.any_with_comments?
+    count(:conditions => { :has_comments => true }) > 0
   end
   
   
