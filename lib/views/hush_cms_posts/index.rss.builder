@@ -15,7 +15,7 @@ xml.rss :version => '2.0' do
         xml.guid hush_cms_post_url(:category => @category.slug, :year => post.published_at.year, :month => post.published_at.month, :day => post.published_at.day, :slug => post.slug)
         
         if @category.has_comments?
-          xml.comments hush_cms_post_url(:category => @category.slug, :year => post.published_at.year, :month => post.published_at.month, :day => post.published_at.day, :slug => post.slug)
+          xml.comments(hush_cms_post_url(:category => @category.slug, :year => post.published_at.year, :month => post.published_at.month, :day => post.published_at.day, :slug => post.slug) + '#comments')
         end
       end
     end
