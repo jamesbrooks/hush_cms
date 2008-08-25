@@ -100,12 +100,14 @@ ul#navigation li#nav-comments a {
 #sidebar a#sidebar-publish,
 #sidebar a#sidebar-unpublish,
 #sidebar a#sidebar-edit-page,
+#sidebar a#sidebar-delete-page,
 #sidebar a#sidebar-new-category,
 #sidebar a#sidebar-edit-category,
 #sidebar a#sidebar-new-post,
 #sidebar a#sidebar-edit-post,
 #sidebar a#sidebar-delete-post,
-#sidebar a#sidebar-new-snippet {
+#sidebar a#sidebar-new-snippet,
+#sidebar a#sidebar-permanent {
 	display: block;
 	font-size: 0.8em;
 	color: #278FD5;
@@ -118,6 +120,7 @@ ul#navigation li#nav-comments a {
 #sidebar a#sidebar-publish:hover,
 #sidebar a#sidebar-unpublish:hover,
 #sidebar a#sidebar-edit-page:hover,
+#sidebar a#sidebar-delete-page:hover,
 #sidebar a#sidebar-new-category:hover,
 #sidebar a#sidebar-edit-category:hover,
 #sidebar a#sidebar-new-post:hover,
@@ -138,6 +141,9 @@ ul#navigation li#nav-comments a {
 #sidebar a#sidebar-edit-page {
 	background-image: url(../images/hush_cms/page_edit.png);	
 }
+#sidebar a#sidebar-delete-page {
+	background-image: url(../images/hush_cms/page_delete.png);
+}
 #sidebar a#sidebar-new-category,
 #sidebar a#sidebar-new-post {
 	background-image: url(../images/hush_cms/newspaper_add.png);
@@ -151,6 +157,10 @@ ul#navigation li#nav-comments a {
 }
 #sidebar a#sidebar-delete-post {
 	background-image: url(../images/hush_cms/newspaper_delete.png);
+}
+#sidebar a#sidebar-permanent {
+	color: #B1A656;
+	background-image: url(../images/hush_cms/shield.png);
 }
 
 #content {

@@ -5,6 +5,7 @@ class CreateHushCmsComponents < ActiveRecord::Migration
       t.string :title, :slug
       t.text :content
       t.datetime :published_at
+      t.boolean :permanent, :default => false
       t.timestamps
     end
     

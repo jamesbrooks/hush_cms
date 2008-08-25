@@ -35,6 +35,14 @@ class HushCMS::Page < ActiveRecord::Base
     update_attribute :published_at, nil
   end
   
+  def make_permanent!
+    update_attribute :permanent, true
+  end
+  
+  def make_unpermanent!
+    update_attribute :permanent, false
+  end
+  
   def breadcrumbs
     parent ? parent.breadcrumbs << self : [self]
   end

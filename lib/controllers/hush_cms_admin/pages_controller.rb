@@ -49,15 +49,21 @@ class HushCmsAdmin::PagesController < HushCmsAdminController
   end
   
   def destroy
+    if @page.permanent?
+      redirect_to :back
+    else
+      @page.destroy
+      redirect_to @page.parent ? hush_cms_admin_page_url(@page.parent) : hush_cms_admin_pages_url
+    end
   end
   
   def publish
-    @page.publish!
+    @page.publish! if @page.permanent?
     redirect_to hush_cms_admin_page_url(@page)
   end
   
   def unpublish
-    @page.unpublish!
+    @page.unpublish! if @page.permanent?
     redirect_to hush_cms_admin_page_url(@page)
   end
   
