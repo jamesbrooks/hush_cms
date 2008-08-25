@@ -9,11 +9,19 @@ Hush CMS has been installed, by default the administrative area is disabled for 
 Hush CMS depends on the haml gem and the tiny_mce plugin, ensure these are installed:
   
   haml:
-  gem install haml
+    gem install haml
   
+
   tiny_mce:
-  script/plugin install git://github.com/kete/tiny_mce.git
-  rake tiny_mce:scripts:install
+    (git w/ submodule support)
+    git submodule add git://github.com/kete/tiny_mce.git vendor/plugins/tiny_mce
+
+    (regular)
+    script/plugin install git://github.com/kete/tiny_mce.git
+ 
+
+    (finally) 
+    rake tiny_mce:scripts:install
 
 
 
