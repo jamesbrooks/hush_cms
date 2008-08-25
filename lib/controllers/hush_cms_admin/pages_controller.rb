@@ -58,12 +58,12 @@ class HushCmsAdmin::PagesController < HushCmsAdminController
   end
   
   def publish
-    @page.publish! if @page.permanent?
+    @page.publish! unless @page.permanent?
     redirect_to hush_cms_admin_page_url(@page)
   end
   
   def unpublish
-    @page.unpublish! if @page.permanent?
+    @page.unpublish! unless @page.permanent?
     redirect_to hush_cms_admin_page_url(@page)
   end
   

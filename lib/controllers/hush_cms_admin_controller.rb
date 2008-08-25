@@ -5,7 +5,6 @@ class HushCmsAdminController < ApplicationController
   
   uses_tiny_mce(:options => {:theme => 'advanced',
     :editor_deselector => 'simple',
-    :browsers => %w{msie gecko},
     :theme_advanced_toolbar_location => "top",
     :theme_advanced_toolbar_align => "center",
     :theme_advanced_resizing => true,
