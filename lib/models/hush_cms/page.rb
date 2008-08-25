@@ -6,7 +6,7 @@ class HushCMS::Page < ActiveRecord::Base
   belongs_to :parent, :class_name => 'HushCMS::Page', :foreign_key => 'parent_id'
   has_many :children, :class_name => 'HushCMS::Page', :foreign_key => 'parent_id', :order => 'position ASC'
   
-  named_scope :published, :conditions => 'published_at IS NOT NULL'
+  named_scope :published, :conditions => 'published_at IS NOT NULL', :order => 'position ASC'
   named_scope :children_of, lambda { |parent| { :conditions => { :parent_id => parent.id } } }
   
   validates_presence_of :title, :slug
