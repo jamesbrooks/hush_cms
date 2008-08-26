@@ -13,5 +13,7 @@
         = link_to image_tag('hush_cms/delete.png'), hush_cms_admin_image_path(image), :method => :delete, :confirm => 'Are you sure?'
 
 %div{:style => 'clear: left'}
+= will_paginate @images if defined? WillPaginate
+
     
   

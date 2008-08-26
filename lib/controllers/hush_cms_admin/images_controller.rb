@@ -3,7 +3,14 @@ class HushCmsAdmin::ImagesController < HushCmsAdminController
   
   
   def index
-    @images = HushCMS::Image.find(:all, :order => 'name ASC')
+    # Paginate with will_paginate if it's loaded
+    paginate_method = if defined?(WillPaginate)
+      [ :paginate, { :per_page => 20, :page => params[:page] } ]
+    else
+      [ :all ]
+    end
+    
+    @images = HushCMS::Image.by_name.send(*paginate_method)
   end
   
   def show
