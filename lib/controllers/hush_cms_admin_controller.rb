@@ -13,13 +13,15 @@ class HushCmsAdminController < ApplicationController
     :theme_advanced_buttons1 => %w{fontsizeselect bold italic underline strikethrough separator justifyleft justifycenter justifyright indent outdent separator bullist numlist forecolor backcolor separator link unlink image undo redo},
     :theme_advanced_buttons2 => [],
     :theme_advanced_buttons3 => [],
-    :plugins => %w{contextmenu paste}},
+    :plugins => %w{contextmenu paste},
+    :relative_urls => false,
+    :external_image_list_url => ActionController::Routing::Routes.named_routes['formatted_hush_cms_admin_images'].segments.map(&:to_s).join.gsub(/:format/, 'js')},
     :only => [:new, :create, :edit, :update])
   
   
   def index
   end
-  
+    
 
 protected
   def prepare_error_messages_for_javascript(obj)

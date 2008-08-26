@@ -1,10 +1,11 @@
 class HushCmsAdmin::ImagesController < HushCmsAdminController
+  layout :decide_layout
   before_filter :find_image, :except => [ :index, :new, :create ]
   
   
   def index
     # Paginate with will_paginate if it's loaded
-    paginate_method = if defined?(WillPaginate)
+    paginate_method = if defined?(WillPaginate) && request.format != 'text/javascript'
       [ :paginate, { :per_page => 20, :page => params[:page] } ]
     else
       [ :all ]
@@ -51,5 +52,9 @@ class HushCmsAdmin::ImagesController < HushCmsAdminController
 private
   def find_image
     @image = HushCMS::Image.find(params[:id])
+  end
+  
+  def decide_layout
+    request.format == 'text/javascript' ? false : 'hush_cms_admin'
   end
 end
