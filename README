@@ -8,6 +8,7 @@ Requirements
 =======
 
 haml
+paperclip
 tiny_mce (check out http://github.com/kete/tiny_mce)
 
 will_paginate (not required but strongly recommended, but will enhance post navigation functionality)
@@ -16,9 +17,10 @@ will_paginate (not required but strongly recommended, but will enhance post navi
 Example
 =======
 
-* Install Hush CMS and TinyMCE
+* Install Hush CMS, paperclip and TinyMCE
 
   script/plugin install git://github.com/JamesBrooks/hush_cms.git
+  script/plguin install git://github.com/thoughtbot/paperclip.git
   script/plugin install git://github.com/kete/tiny_mce.git
 
 

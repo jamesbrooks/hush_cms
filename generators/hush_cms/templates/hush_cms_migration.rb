@@ -38,6 +38,13 @@ class CreateHushCmsComponents < ActiveRecord::Migration
       t.timestamps
     end
     
+    create_table :hush_cms_images do |t|
+      t.string :name, :image_filename, :image_content_type
+      t.integer :image_file_size
+      t.text :content
+      t.timestamps
+    end
+    
     # TODO: Add appropriate indexes
   end
 
@@ -47,5 +54,6 @@ class CreateHushCmsComponents < ActiveRecord::Migration
     drop_table :hush_cms_posts
     drop_table :hush_cms_comments
     drop_table :hush_cms_snippets
+    drop_table :hush_cms_images
   end
 end
