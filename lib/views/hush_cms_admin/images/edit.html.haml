@@ -1,0 +1,20 @@
+- title "Editing #{@image.name}"
+
+- content_for :sidebar do
+  = link_to 'New Image', new_hush_cms_admin_image_path, :id => 'sidebar-new-image'
+  = link_to 'Delete Image', hush_cms_admin_image_path(@image), :method => :delete, :id => 'sidebar-delete-image', :confirm => 'Are you sure?'
+
+#breadcrumbs
+  = link_to 'All Images', hush_cms_admin_images_path
+
+- form_for @image, :url => hush_cms_admin_image_path(@image) do |form|
+  .row
+    = form.label :name
+    = form.text_field :name
+    
+  .row
+    = form.label :image
+    = form.file_field :image
+    = image_tag @image.image.url, :alt => @image.name, :class => 'image'
+    
+  = submit_tag 'Update Image'

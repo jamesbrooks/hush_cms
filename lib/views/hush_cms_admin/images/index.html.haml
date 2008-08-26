@@ -1,0 +1,17 @@
+- title 'Images'
+
+- content_for :sidebar do
+  = link_to 'New Image', new_hush_cms_admin_image_path, :id => 'sidebar-new-image'
+
+%ul#images.hoverable
+  - @images.each do |image|
+    %li
+      = image_tag image.image(:thumb)
+      %span= image.name
+      .options
+        = link_to image_tag('hush_cms/pencil.png'), edit_hush_cms_admin_image_path(image)
+        = link_to image_tag('hush_cms/delete.png'), hush_cms_admin_image_path(image), :method => :delete, :confirm => 'Are you sure?'
+
+%div{:style => 'clear: left'}
+    
+  

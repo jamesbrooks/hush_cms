@@ -14,6 +14,7 @@
       %ul#navigation
         %li#nav-pages= link_to 'Pages', hush_cms_admin_pages_path
         %li#nav-posts= link_to 'Posts', hush_cms_admin_categories_path
+        %li#nav-images= link_to 'Images', hush_cms_admin_images_path
         %li#nav-snippets= link_to 'Snippets', hush_cms_admin_snippets_path
         
         - if HushCMS::Category.any_with_comments?

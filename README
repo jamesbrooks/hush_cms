@@ -20,7 +20,7 @@ Example
 * Install Hush CMS, paperclip and TinyMCE
 
   script/plugin install git://github.com/JamesBrooks/hush_cms.git
-  script/plguin install git://github.com/thoughtbot/paperclip.git
+  script/plugin install git://github.com/thoughtbot/paperclip.git
   script/plugin install git://github.com/kete/tiny_mce.git
 
 

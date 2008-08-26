@@ -39,7 +39,7 @@ class CreateHushCmsComponents < ActiveRecord::Migration
     end
     
     create_table :hush_cms_images do |t|
-      t.string :name, :image_filename, :image_content_type
+      t.string :name, :image_file_name, :image_content_type
       t.integer :image_file_size
       t.text :content
       t.timestamps
