@@ -28,6 +28,7 @@ module HushCMS
 
       ActiveRecord::Base.class_eval { include ActiveRecord::Acts::List }
       ActionController::Base.append_view_path(File.join(File.dirname(__FILE__), 'views'))
+      ActionController::Base.send :include, HushCMSControllerHelpers
       ActionView::Base.send :include, HushCMSViewHelpers
       
       if File.exist?("#{RAILS_ROOT}/config/hush.yml")
