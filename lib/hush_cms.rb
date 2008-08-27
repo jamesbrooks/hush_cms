@@ -52,6 +52,10 @@ module HushCMS
         raise ConfigurationException.new("config/hush.yml doesn't define username and password under administration")
       end
       
+      configuration['controllers'] ||= {}
+      configuration['controllers']['pages'] ||= 'hush_cms_pages'
+      configuration['controllers']['posts'] ||= 'hush_cms_posts'
+      
       configuration['post_date_format'] = configuration['post_date_format'] ? configuration['post_date_format'].to_sym : :hush_date
       
       if configuration['paginate_options']

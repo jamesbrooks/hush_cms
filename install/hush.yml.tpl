@@ -2,6 +2,9 @@ administration:
   # username: username
   # password: password
 
+# controllers:
+  # pages: pages
+
 # feed:
   # title_prefix: 'Site Title | '
 

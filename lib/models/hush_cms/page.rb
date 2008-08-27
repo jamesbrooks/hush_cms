@@ -44,11 +44,19 @@ class HushCMS::Page < ActiveRecord::Base
   end
   
   def breadcrumbs
-    parent ? parent.breadcrumbs << self : [self]
+    @breadcrumbs ||= parent ? parent.breadcrumbs << self : [self]
+  end
+  
+  def ancestors
+    @ancestors ||= breadcrumbs.reverse[1..-1]
+  end
+  
+  def root_ancestor
+    breadcrumbs.first
   end
   
   def path
-    breadcrumbs.map { |p| p.slug }.join('/')
+    @path ||= breadcrumbs.map { |p| p.slug }.join('/')
   end
   
   def possible_parents
