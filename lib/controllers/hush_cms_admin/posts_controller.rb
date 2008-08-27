@@ -55,7 +55,7 @@ class HushCmsAdmin::PostsController < HushCmsAdminController
 private
   def find_category
     @category = HushCMS::Category.find(params[:category_id])
-    @posts = @category.posts
+    @posts = @category.posts.all(:order => 'created_at DESC')
   end
 
   def find_post
