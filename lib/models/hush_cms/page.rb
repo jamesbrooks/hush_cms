@@ -64,9 +64,12 @@ class HushCMS::Page < ActiveRecord::Base
     HushCMS::Page.all.map { |p| [ p.path, p.id ] }.reject { |p| p.first.starts_with? path }
   end
   
-  def snippet(slug)
-    s = snippets.find_by_slug(slug)
-    s ? s.content : nil
+  def snippet(slug, recurse=true)
+    if s = snippets.find_by_slug(slug)
+      s.content
+    else
+      recurse && parent ? parent.snippet(slug, recurse) : "('#{slug}' snippet not found)"
+    end
   end
   
   def self.base_pages

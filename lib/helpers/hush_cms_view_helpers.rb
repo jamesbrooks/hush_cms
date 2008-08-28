@@ -1,7 +1,7 @@
 module HushCMSViewHelpers
-  def hush_cms_snippet(name)
-    content_tag :div, :class => "snippet #{name.slugify}-snippet" do
-      HushCMS::Snippet.find_by_name(name).content rescue "('#{name}' snippet not found)"
+  def hush_cms_snippet(slug)
+    content_tag :div, :class => "snippet #{slug}-snippet" do
+      HushCMS::Snippet.find_by_slug(slug).content rescue "('#{slug}' snippet not found)"
     end
   end
   
