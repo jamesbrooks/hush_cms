@@ -24,6 +24,10 @@
     = form.select :parent_id, @page.possible_parents, :include_blank => true
   
   .row
+    = form.label :redirect_to, 'Redirect to'
+    = form.select :redirect_to, @page.pages_for_redirect_to, :include_blank => true
+  
+  .row
     = form.label :content
     = form.text_area :content
     

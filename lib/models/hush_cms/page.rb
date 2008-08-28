@@ -64,6 +64,10 @@ class HushCMS::Page < ActiveRecord::Base
     HushCMS::Page.all.map { |p| [ p.path, p.id ] }.reject { |p| p.first.starts_with? path }
   end
   
+  def pages_for_redirect_to
+    HushCMS::Page.find(:all, :conditions => [ 'id != ?', id ]).map { |p| [ p.path, p.id ] }
+  end
+  
   def snippet(slug, recurse=true)
     if s = snippets.find_by_slug(slug)
       s.content
