@@ -73,11 +73,7 @@ class HushCMS::Page < ActiveRecord::Base
   end
   
   def snippet(slug, recurse=true)
-    if s = snippets.find_by_slug(slug)
-      s.content
-    else
-      recurse && parent ? parent.snippet(slug, recurse) : "('#{slug}' snippet not found)"
-    end
+    @snippet ||= get_snippet(slug, recurse)
   end
   
   def self.base_pages
@@ -95,6 +91,14 @@ private
     if title?
       self.slug = title.slugify
       assign_unique_slug if slug_taken?
+    end
+  end
+  
+  def get_snippet(slug, recurse)
+    if s = snippets.find_by_slug(slug)
+      s.content
+    else
+      recurse && parent ? parent.snippet(slug, recurse) : "('#{slug}' snippet not found)"
     end
   end
   
