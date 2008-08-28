@@ -60,6 +60,10 @@ class HushCMS::Page < ActiveRecord::Base
     @path ||= breadcrumbs.map { |p| p.slug }.join('/')
   end
   
+  def target
+    redirect_to ? HushCMS::Page.find(redirect_to) : self rescue self
+  end
+  
   def possible_parents
     HushCMS::Page.all.map { |p| [ p.path, p.id ] }.reject { |p| p.first.starts_with? path }
   end
