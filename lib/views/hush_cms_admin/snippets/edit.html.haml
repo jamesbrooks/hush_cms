@@ -15,7 +15,7 @@
     = link_to('All Snippets', hush_cms_admin_snippets_path) + ' &raquo; '
     = link_to @snippet.name, edit_hush_cms_admin_snippet_path(@snippet)
 
-- form_for @snippet, :url => hush_cms_admin_snippet_path(@snippet), :html => { :multipart => true } do |form|
+- form_for @snippet, :url => (@page ? hush_cms_admin_page_snippet_path(@page, @snippet) : hush_cms_admin_snippet_path(@snippet)), :html => { :multipart => true } do |form|
   .row
     = form.label :name
     = form.text_field :name
