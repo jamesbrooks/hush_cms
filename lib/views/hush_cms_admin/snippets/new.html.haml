@@ -1,13 +1,18 @@
 - title 'New Snippet'
 
 - content_for :sidebar do
-  = link_to 'New Snippet', new_hush_cms_admin_snippet_path, :id => 'sidebar-new-snippet'
+  = link_to 'New Snippet', (@page ? new_hush_cms_admin_page_snippet_path : new_hush_cms_admin_snippet_path), :id => 'sidebar-new-snippet'
   = render :partial => 'snippets', :object => @snippets
 
 #breadcrumbs
-  = link_to 'All Snippets', hush_cms_admin_snippets_path
+  - if @page
+    = link_to('Base Pages', hush_cms_admin_pages_path) + ' &raquo; '
+    = @page.breadcrumbs.map { |p| link_to p.title, hush_cms_admin_page_path(p) }.join(' &raquo; ') + ' &raquo; '
+    = link_to 'Snippets', hush_cms_admin_page_snippets_path(@page)
+  - else
+    = link_to 'All Snippets', hush_cms_admin_snippets_path
 
-- form_for @snippet, :url => hush_cms_admin_snippets_path do |form|
+- form_for @snippet, :url => (@page ? hush_cms_admin_page_snippets_path(@page) : hush_cms_admin_snippets_path) do |form|
   .row
     = form.label :name
     = form.text_field :name

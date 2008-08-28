@@ -25,7 +25,7 @@
         - if @links && !@links.empty?
           %ul
             - @links.each do |type, link|
-              %li{:class => type}= link_to(link, link)
+              %li{:class => type}= link_to(link, (type == 'snippet' ? 'javascript:void(0)' : link))
               
       #sidebar
         = yield :sidebar

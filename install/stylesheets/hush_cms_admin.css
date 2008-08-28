@@ -87,6 +87,9 @@ ul#navigation li#nav-comments a {
 #links li.feed a {
 	background-image: url(../images/hush_cms/feed.png);
 }
+#links li.snippet a {
+  background-image: url(../images/hush_cms/note.png);
+}
 
 #sidebar {
 	float: left;
@@ -110,6 +113,7 @@ ul#navigation li#nav-comments a {
 #sidebar a#sidebar-edit-post,
 #sidebar a#sidebar-delete-post,
 #sidebar a#sidebar-new-snippet,
+#sidebar a#sidebar-snippets,
 #sidebar a#sidebar-new-image,
 #sidebar a#sidebar-delete-image,
 #sidebar a#sidebar-permanent {
@@ -133,7 +137,8 @@ ul#navigation li#nav-comments a {
 #sidebar a#sidebar-delete-post:hover,
 #sidebar a#sidebar-new-image:hover,
 #sidebar a#sidebar-delete-image:hover,
-#sidebar a#sidebar-new-snippet:hover {
+#sidebar a#sidebar-new-snippet:hover,
+#sidebar a#sidebar-snippets:hover {
 	text-decoration: underline;
 }
 #sidebar a#sidebar-new-page {
@@ -174,6 +179,9 @@ ul#navigation li#nav-comments a {
 #sidebar a#sidebar-permanent {
 	color: #B1A656;
 	background-image: url(../images/hush_cms/shield.png);
+}
+#sidebar a#sidebar-snippets {
+  background-image: url(../images/hush_cms/note.png);
 }
 
 #content {

@@ -20,9 +20,12 @@ module ActionController
             a.resources :categories do |c|
               c.resources :posts, :member => { :publish => :put, :unpublish => :put }
             end
+
+            a.resources :pages, :member => { :publish => :put, :unpublish => :put, :move_higher => :put, :move_lower => :put } do |p|
+              p.resources :snippets
+            end
             
             a.resources :comments, :member => { :approve => :put, :unapprove => :put }
-            a.resources :pages, :member => { :publish => :put, :unpublish => :put, :move_higher => :put, :move_lower => :put }
             a.resources :images
             a.resources :snippets
           end

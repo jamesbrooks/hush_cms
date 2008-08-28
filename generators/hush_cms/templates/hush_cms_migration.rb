@@ -33,7 +33,8 @@ class CreateHushCmsComponents < ActiveRecord::Migration
     end
     
     create_table :hush_cms_snippets do |t|
-      t.string :name
+      t.integer :page_id
+      t.string :name, :slug
       t.text :content
       t.timestamps
     end

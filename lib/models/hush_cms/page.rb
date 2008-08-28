@@ -5,6 +5,7 @@ class HushCMS::Page < ActiveRecord::Base
   
   belongs_to :parent, :class_name => 'HushCMS::Page', :foreign_key => 'parent_id'
   has_many :children, :class_name => 'HushCMS::Page', :foreign_key => 'parent_id', :order => 'position ASC'
+  has_many :snippets, :class_name => 'HushCMS::Snippet', :foreign_key => 'page_id'
   
   named_scope :published, :conditions => 'published_at IS NOT NULL', :order => 'position ASC'
   named_scope :children_of, lambda { |parent| { :conditions => { :parent_id => parent.id } } }
@@ -61,6 +62,11 @@ class HushCMS::Page < ActiveRecord::Base
   
   def possible_parents
     HushCMS::Page.all.map { |p| [ p.path, p.id ] }.reject { |p| p.first.starts_with? path }
+  end
+  
+  def snippet(slug)
+    s = snippets.find_by_slug(slug)
+    s ? s.content : nil
   end
   
   def self.base_pages

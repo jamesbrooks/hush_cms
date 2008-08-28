@@ -14,10 +14,10 @@ class HushCmsAdmin::SnippetsController < HushCmsAdminController
   end
   
   def create
-    @snippet = HushCMS::Snippet.new(params[:hush_cms_snippet])
+    @snippet = @page ? @page.snippets.build(params[:hush_cms_snippet]) : HushCMS::Snippet.new(params[:hush_cms_snippet])
     
     if @snippet.save
-      redirect_to hush_cms_admin_snippets_url
+      redirect_to @page ? hush_cms_admin_page_snippets_url(@page) : hush_cms_admin_snippets_url
     else
       prepare_error_messages_for_javascript @snippet
       render :action => 'new'
@@ -29,7 +29,7 @@ class HushCmsAdmin::SnippetsController < HushCmsAdminController
   
   def update
     if @snippet.update_attributes(params[:hush_cms_snippet])
-      redirect_to hush_cms_admin_snippets_url
+      redirect_to @page ? hush_cms_admin_page_snippets_url(@page) : hush_cms_admin_snippets_url
     else
       prepare_error_messages_for_javascript @snippet
       render :action => 'edit'
@@ -38,16 +38,21 @@ class HushCmsAdmin::SnippetsController < HushCmsAdminController
   
   def destroy
     @snippet.destroy
-    redirect_to :back
+    redirect_to @page ? hush_cms_admin_page_snippets_url(@page) : :back
   end
   
   
 private
   def find_snippets
-    @snippets = HushCMS::Snippet.find(:all, :order => 'name DESC')
+    if params[:page_id]
+      @page = HushCMS::Page.find(params[:page_id])
+      @snippets = @page.snippets
+    else
+      @snippets = HushCMS::Snippet.find_all_by_page_id(nil, :order => 'name DESC')
+    end
   end
 
   def find_snippet
-    @snippet = HushCMS::Snippet.find(params[:id])
+    @snippet = @page ? @page.snippets.find(params[:id]) : HushCMS::Snippet.find_by_id_and_page_id(params[:id], nil)
   end
 end

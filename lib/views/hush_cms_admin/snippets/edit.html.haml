@@ -1,8 +1,19 @@
 - title "Editing #{@snippet.name}"
+- add_link @snippet.slug, 'snippet'
 
 - content_for :sidebar do
   = link_to 'New Snippet', new_hush_cms_admin_snippet_path, :id => 'sidebar-new-snippet'
   = render :partial => 'snippets', :object => @snippets
+
+#breadcrumbs
+  - if @page
+    = link_to('Base Pages', hush_cms_admin_pages_path) + ' &raquo; '
+    = @page.breadcrumbs.map { |p| link_to p.title, hush_cms_admin_page_path(p) }.join(' &raquo; ') + ' &raquo; '
+    = link_to('Snippets', hush_cms_admin_page_snippets_path(@page)) + ' &raquo; '
+    = link_to @snippet.name, edit_hush_cms_admin_page_snippet_path(@page, @snippet)
+  - else
+    = link_to('All Snippets', hush_cms_admin_snippets_path) + ' &raquo; '
+    = link_to @snippet.name, edit_hush_cms_admin_snippet_path(@snippet)
 
 - form_for @snippet, :url => hush_cms_admin_snippet_path(@snippet), :html => { :multipart => true } do |form|
   .row
