@@ -45,7 +45,11 @@ class HushCMS::Page < ActiveRecord::Base
   end
   
   def breadcrumbs
-    @breadcrumbs ||= parent ? parent.breadcrumbs << self : [self]
+    @breadcrumbs ||= generate_breadcrumbs
+  end
+  
+  def generate_breadcrumbs
+    parent ? parent.generate_breadcrumbs << self : [self]
   end
   
   def ancestors
@@ -84,7 +88,7 @@ class HushCMS::Page < ActiveRecord::Base
     page = parent ? parent.children.find_by_slug(path.shift) : find_by_slug(path.shift)
     path.empty? ? page : locate(path, page)
   end  
-  
+
   
 private
   def assign_slug
