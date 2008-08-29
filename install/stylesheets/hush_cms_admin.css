@@ -190,8 +190,9 @@ ul#navigation li#nav-comments a {
 }
 
 #rendered-content {
-	border:1px solid #C9C4AF;
-	padding:10px;
+	border: 1px solid #C9C4AF;
+	padding: 10px;
+  font-size: 0.7em;
 	-moz-border-radius: 2px;
   -webkit-border-radius: 2px;
  	-opera-border-radius: 2px;
