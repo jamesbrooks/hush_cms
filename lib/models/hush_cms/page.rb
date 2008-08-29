@@ -45,7 +45,7 @@ class HushCMS::Page < ActiveRecord::Base
   end
   
   def options_list
-    options.split ','
+    options ? options.split(',') : []
   end
   
   def breadcrumbs
@@ -81,7 +81,8 @@ class HushCMS::Page < ActiveRecord::Base
   end
   
   def snippet(slug, recurse=true)
-    @snippet ||= get_snippet(slug, recurse)
+    @snippets_cache ||= {}
+    @snippets_cache[slug] ||= get_snippet(slug, recurse)
   end
   
   def self.base_pages
@@ -106,7 +107,7 @@ private
     if s = snippets.find_by_slug(slug)
       s.content
     else
-      recurse && parent ? parent.snippet(slug, recurse) : "('#{slug}' snippet not found)"
+      recurse && parent ? parent.snippet(slug, recurse) : nil
     end
   end
   
