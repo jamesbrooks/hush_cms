@@ -9,12 +9,20 @@ class CreateHushCmsComponents < ActiveRecord::Migration
       t.timestamps
     end
     
+    add_index :hush_cms_pages, :slug
+    add_index :hush_cms_pages, :parent_id
+    add_index :hush_cms_pages, [ :slug, :parent_id ]
+    
+    
     create_table :hush_cms_categories do |t|
       t.string :name, :slug
       t.text :description
       t.boolean :has_comments, :default => false
       t.boolean :has_feed, :default => false
     end
+    
+    # TODO: Add indexes for categories when analysed better
+    
     
     create_table :hush_cms_posts do |t|
       t.integer :category_id
@@ -24,6 +32,9 @@ class CreateHushCmsComponents < ActiveRecord::Migration
       t.timestamps
     end
     
+    # TODO: Add indexes for posts when analysed better
+    
+    
     create_table :hush_cms_comments do |t|
       t.integer :post_id
       t.string :name, :email
@@ -32,12 +43,20 @@ class CreateHushCmsComponents < ActiveRecord::Migration
       t.timestamps
     end
     
+    # TODO: Add indexes for comments when analysed better
+    
+    
     create_table :hush_cms_snippets do |t|
       t.integer :page_id
       t.string :name, :slug
       t.text :content
       t.timestamps
     end
+    
+    add_index :hush_cms_snippets, :slug
+    add_index :hush_cms_snippets, :page_id
+    add_index :hush_cms_snippets, [ :slug, :page_id ]
+    
     
     create_table :hush_cms_images do |t|
       t.string :name, :image_file_name, :image_content_type
@@ -46,7 +65,7 @@ class CreateHushCmsComponents < ActiveRecord::Migration
       t.timestamps
     end
     
-    # TODO: Add appropriate indexes
+    add_index :hush_cms_image, :name
   end
 
   def self.down
