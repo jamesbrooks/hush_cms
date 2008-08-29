@@ -44,6 +44,10 @@ class HushCMS::Page < ActiveRecord::Base
     update_attribute :permanent, false
   end
   
+  def options_list
+    options.split ','
+  end
+  
   def breadcrumbs
     @breadcrumbs ||= generate_breadcrumbs
   end

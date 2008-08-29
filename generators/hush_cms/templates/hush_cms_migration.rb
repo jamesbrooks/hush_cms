@@ -2,7 +2,7 @@ class CreateHushCmsComponents < ActiveRecord::Migration
   def self.up
     create_table :hush_cms_pages do |t|
       t.integer :parent_id, :position, :redirect_to
-      t.string :title, :slug
+      t.string :title, :slug, :options
       t.text :content
       t.datetime :published_at
       t.boolean :permanent, :default => false
@@ -65,7 +65,7 @@ class CreateHushCmsComponents < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :hush_cms_image, :name
+    add_index :hush_cms_images, :name
   end
 
   def self.down
