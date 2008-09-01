@@ -1,7 +1,5 @@
-class String
+class String  
   def slugify
-    returning self.downcase.gsub("'", '').gsub('/', ' ').gsub(/[^a-z0-9]+/, '-') do |slug|
-      slug.chop! if slug.last == '-'
-    end
+    self.downcase.gsub(/&/, ' and ').gsub(/[^a-z0-9']+/, '-').gsub(/^-|-$|'/, '')
   end
 end
