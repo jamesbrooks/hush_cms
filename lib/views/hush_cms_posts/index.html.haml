@@ -6,13 +6,13 @@
 
   - @posts.each do |post|
     .post
-      .title= link_to post.title, hush_cms_post_url(:category => @category.slug, :year => post.published_at.year, :month => post.published_at.month, :day => post.published_at.day, :slug => post.slug)
+      .title= link_to post.title, generate_hush_cms_post_url(post)
       .author= post.author
       .published_at= post.published_at.to_s(HushCMS.configuration['post_date_format'])
       .post-content= post.content
       
       - if @category.has_comments?
-        = link_to((post.comments.empty? ? 'Leave a Comment' : pluralize(post.comments.count, 'Comment')), hush_cms_post_url(:category => @category.slug, :year => post.published_at.year, :month => post.published_at.month, :day => post.published_at.day, :slug => post.slug) + '#comments')
+        = link_to((post.comments.empty? ? 'Leave a Comment' : pluralize(post.comments.count, 'Comment')), generate_hush_cms_post_url(post) + '#comments')
 
         
   = will_paginate @posts if defined? WillPaginate

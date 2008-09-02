@@ -8,15 +8,12 @@ xml.rss :version => '2.0' do
     @posts.each do |post|
       xml.item do
         xml.title post.title
-        xml.link hush_cms_post_url(:category => @category.slug, :year => post.published_at.year, :month => post.published_at.month, :day => post.published_at.day, :slug => post.slug)
+        xml.link generate_hush_cms_post_url(post)
         xml.author post.author
         xml.description post.content
         xml.pubDate post.published_at.to_s(:rfc882)
-        xml.guid hush_cms_post_url(:category => @category.slug, :year => post.published_at.year, :month => post.published_at.month, :day => post.published_at.day, :slug => post.slug)
-        
-        if @category.has_comments?
-          xml.comments(hush_cms_post_url(:category => @category.slug, :year => post.published_at.year, :month => post.published_at.month, :day => post.published_at.day, :slug => post.slug) + '#comments')
-        end
+        xml.guid generate_hush_cms_post_url(post)      
+        xml.comments(generate_hush_cms_post_url(post) + '#comments') if @category.has_comments?
       end
     end
   end

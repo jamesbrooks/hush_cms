@@ -14,4 +14,24 @@ module HushCMSViewHelpers
       link_to page.title, hush_cms_page_path(page.path)
     end.join(' &raquo; ')
   end
+  
+  def generate_hush_cms_post_path(post)
+    hush_cms_post_location(:hush_cms_post_path, post)
+  end
+  
+  def generate_hush_cms_post_url(post)
+    hush_cms_post_location(:hush_cms_post_url, post)
+  end
+  
+  
+private
+  def hush_cms_post_location(m, post)
+    send m, {
+      :category => post.category.slug,
+      :year     => post.published_at.year,
+      :month    => post.published_at.month,
+      :day      => post.published_at.day,
+      :slug     => post.slug      
+    }
+  end
 end
