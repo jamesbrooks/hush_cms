@@ -1,6 +1,6 @@
 - title @category.name
-- add_link hush_cms_posts_url(@category.slug)
-- add_link hush_cms_posts_url(@category.slug, :rss), :feed if @category.has_feed?
+- add_link hush_cms_posts_url(:category => @category.slug)
+- add_link hush_cms_formatted_posts_url(:category => @category.slug, :format => :rss), :feed if @category.has_feed?
 
 - content_for :sidebar do
   = link_to 'Edit Category', edit_hush_cms_admin_category_path(@category), :id => 'sidebar-edit-category'

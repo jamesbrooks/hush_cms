@@ -1,7 +1,7 @@
 #posts
   .category= @category.name
   .description= @category.description
-  .feed= link_to image_tag('hush_cms/feed.png'), hush_cms_posts_path(@category.slug, :rss)
+  .feed= link_to image_tag('hush_cms/feed.png'), hush_cms_formatted_posts_path(:category => @category.slug, :format => :rss)
 
 
   - @posts.each do |post|

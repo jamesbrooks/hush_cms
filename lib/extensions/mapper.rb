@@ -10,11 +10,18 @@ module ActionController
           post_component_order = options[:order] || [ :category, :year, :month, :day, :slug ]
           
           named_route 'hush_cms_posts',
+            "#{path}/:category/:page",
+            :controller => HushCMS.configuration['controllers']['posts'],
+            :action => 'index',
+            :defaults => { :page => 1 },
+            :requirements => { :page => /\d+/ }
+          
+          named_route 'hush_cms_formatted_posts',
             "#{path}/:category/:format",
             :controller => HushCMS.configuration['controllers']['posts'],
             :action => 'index',
             :defaults => { :format => 'html' },
-            :requirements => { :format => /html|rss/ }
+            :requirements => { :format => /html|rss/ }          
             
           named_route 'hush_cms_month_posts',
             "#{path}/#{post_component_order.select { |c| [ :category, :year, :month ].include?(c) }.map { |c| ":#{c}" }.join('/')}",
