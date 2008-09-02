@@ -19,7 +19,8 @@ module ActionController
           named_route 'hush_cms_month_posts',
             "#{path}/#{post_component_order.select { |c| [ :category, :year, :month ].include?(c) }.map { |c| ":#{c}" }.join('/')}",
             :controller => HushCMS.configuration['controllers']['posts'],
-            :action => 'archive'
+            :action => 'archive',
+            :requirements => { :year => /\d+/, :month => /\d+/ }
             
           named_route 'hush_cms_post',
             "#{path}/#{post_component_order.map { |c| ":#{c}" }.join('/')}",
