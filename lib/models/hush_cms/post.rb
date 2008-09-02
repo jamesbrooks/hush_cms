@@ -6,6 +6,7 @@ class HushCMS::Post < ActiveRecord::Base
   
   named_scope :published, :conditions => 'published_at IS NOT NULL'
   named_scope :unpublished, :conditions => 'published_at IS NULL'
+  named_scope :month, lambda { |month| { :conditions => [ 'MONTH(published_at) = ?', month] } }
   
   validates_presence_of :title, :author, :category
   validates_presence_of :slug, :if => :published?
@@ -32,6 +33,14 @@ class HushCMS::Post < ActiveRecord::Base
   
   def unpublish!
     update_attribute :published_at, nil
+  end
+  
+  def self.archives(options={})
+    all({
+      :select => 'YEAR(published_at) as year, MONTH(published_at) as month, COUNT(*) as count',
+      :group => 'year, month',
+      :order => 'year DESC, month DESC'}.merge(options)
+    ).inject([]) { |c, g| c << { :year => g.year, :month => g.month, :count => g.count } }
   end
   
   
