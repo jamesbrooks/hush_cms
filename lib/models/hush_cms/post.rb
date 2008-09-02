@@ -6,7 +6,9 @@ class HushCMS::Post < ActiveRecord::Base
   
   named_scope :published, :conditions => 'published_at IS NOT NULL'
   named_scope :unpublished, :conditions => 'published_at IS NULL'
-  named_scope :month, lambda { |month| { :conditions => [ 'MONTH(published_at) = ?', month] } }
+  named_scope :by_year_and_month, lambda { |year, month| {
+    :conditions => [ 'YEAR(published_at) = ? AND MONTH(published_at) = ?', year, month]
+  } }
   
   validates_presence_of :title, :author, :category
   validates_presence_of :slug, :if => :published?
