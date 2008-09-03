@@ -29,8 +29,8 @@ private
     send m, {
       :category => post.category.slug,
       :year     => post.published_at.year,
-      :month    => post.published_at.month,
-      :day      => post.published_at.day,
+      :month    => '%02d' % post.published_at.month,
+      :day      => '%02d' % post.published_at.day,
       :slug     => post.slug      
     }
   end

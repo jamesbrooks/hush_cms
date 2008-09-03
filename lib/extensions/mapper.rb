@@ -3,7 +3,10 @@ module ActionController
     class RouteSet
       class Mapper
         def hush_cms_pages(path)
-          named_route 'hush_cms_page', "#{path}/*path", :controller => HushCMS.configuration['controllers']['pages'], :action => 'show'
+          named_route 'hush_cms_page',
+            "#{path}/*path",
+            :controller => HushCMS.configuration['controllers']['pages'],
+            :action => 'show'
         end
         
         def hush_cms_posts(path, options={})
@@ -27,12 +30,13 @@ module ActionController
             "#{path}/#{post_component_order.select { |c| [ :category, :year, :month ].include?(c) }.map { |c| ":#{c}" }.join('/')}",
             :controller => HushCMS.configuration['controllers']['posts'],
             :action => 'archive',
-            :requirements => { :year => /\d+/, :month => /\d+/ }
+            :requirements => { :year => /\d{4}/, :month => /\d{2}/ }
             
           named_route 'hush_cms_post',
             "#{path}/#{post_component_order.map { |c| ":#{c}" }.join('/')}",
             :controller => HushCMS.configuration['controllers']['posts'],
-            :action => 'show'
+            :action => 'show',
+            :requirements => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
         end
         
         def hush_cms_admin(path)
