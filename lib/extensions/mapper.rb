@@ -43,7 +43,7 @@ module ActionController
           named_route 'hush_cms_admin', path, :controller => 'hush_cms_admin/pages', :action => 'index'
           
           namespace :hush_cms_admin, :path_prefix => path do |a|
-            a.resources :categories do |c|
+            a.resources :post_categories do |c|
               c.resources :posts, :member => { :publish => :put, :unpublish => :put }
             end
 

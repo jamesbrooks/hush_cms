@@ -14,7 +14,7 @@ class CreateHushCmsComponents < ActiveRecord::Migration
     add_index :hush_cms_pages, [ :slug, :parent_id ]
     
     
-    create_table :hush_cms_categories do |t|
+    create_table :hush_cms_post_categories do |t|
       t.string :name, :slug
       t.text :description
       t.boolean :has_comments, :default => false
@@ -25,7 +25,7 @@ class CreateHushCmsComponents < ActiveRecord::Migration
     
     
     create_table :hush_cms_posts do |t|
-      t.integer :category_id
+      t.integer :post_category_id
       t.string :title, :author, :slug
       t.text :content
       t.datetime :published_at

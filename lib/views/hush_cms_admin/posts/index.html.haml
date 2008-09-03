@@ -1,13 +1,13 @@
-- title @category.name
-- add_link hush_cms_posts_url(:category => @category.slug)
-- add_link hush_cms_formatted_posts_url(:category => @category.slug, :format => :rss), :feed if @category.has_feed?
+- title @post_category.name
+- add_link hush_cms_posts_url(:category => @post_category.slug)
+- add_link hush_cms_formatted_posts_url(:category => @post_category.slug, :format => :rss), :feed if @post_category.has_feed?
 
 - content_for :sidebar do
-  = link_to 'Edit Category', edit_hush_cms_admin_category_path(@category), :id => 'sidebar-edit-category'
-  = link_to 'New Post', new_hush_cms_admin_category_post_path(@category), :id => 'sidebar-new-post'
+  = link_to 'Edit Category', edit_hush_cms_admin_post_category_path(@post_category), :id => 'sidebar-edit-post-category'
+  = link_to 'New Post', new_hush_cms_admin_post_category_post_path(@post_category), :id => 'sidebar-new-post'
   = render :partial => 'posts', :object => @posts
 
 #breadcrumbs
-  = link_to('All Categories', hush_cms_admin_categories_path)
+  = link_to('All Categories', hush_cms_admin_post_categories_path)
   &raquo;
-  = link_to(@category.name, hush_cms_admin_category_posts_path(@category))
+  = link_to(@post_category.name, hush_cms_admin_post_category_posts_path(@post_category))

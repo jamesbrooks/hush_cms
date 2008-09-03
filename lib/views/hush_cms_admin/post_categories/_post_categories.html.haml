@@ -1,0 +1,12 @@
+- unless post_categories.empty?
+  %ul#post-categories.hoverable
+    - post_categories.each do |post_category|
+      %li{:id => "post-category-#{post_category.id}"}
+        = link_to post_category.name, hush_cms_admin_post_category_posts_path(post_category), :class => 'title'
+        %span
+          = pluralize(post_category.posts.count, 'item')
+          = ", #{post_category.posts.unpublished.count} un-published" if post_category.posts.unpublished.count > 0
+
+        = link_to image_tag('hush_cms/pencil.png', :alt => 'Edit Category'), edit_hush_cms_admin_post_category_path(post_category), :class => 'edit-post-category'
+        
+        = link_to image_tag('hush_cms/newspaper_delete.png', :alt => 'Delete Category'), hush_cms_admin_post_category_path(post_category), :method => :delete, :class => 'delete-post-category', :confirm => 'Are you sure?'

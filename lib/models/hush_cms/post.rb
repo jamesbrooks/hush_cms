@@ -1,7 +1,7 @@
 class HushCMS::Post < ActiveRecord::Base
   set_table_name 'hush_cms_posts'
   
-  belongs_to :category, :class_name => 'HushCMS::Category'
+  belongs_to :category, :class_name => 'HushCMS::PostCategory', :foreign_key => 'post_category_id'
   has_many :comments, :class_name => 'HushCMS::Comment', :dependent => :destroy
   
   named_scope :published, :conditions => 'published_at IS NOT NULL'

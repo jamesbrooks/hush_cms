@@ -1,5 +1,5 @@
-class HushCMS::Category < ActiveRecord::Base
-  set_table_name 'hush_cms_categories'
+class HushCMS::PostCategory < ActiveRecord::Base
+  set_table_name 'hush_cms_post_categories'
   
   has_many :posts, :class_name => 'HushCMS::Post', :dependent => :destroy, :order => 'published_at DESC'
   
@@ -36,9 +36,9 @@ private
   
   def slug_taken?
     if new_record?
-      HushCMS::Category.count(:conditions => [ 'slug = ?', slug ]) > 0
+      HushCMS::PostCategory.count(:conditions => [ 'slug = ?', slug ]) > 0
     else                                                 
-      HushCMS::Category.count(:conditions => [ 'slug = ? AND id != ?', slug, id ]) > 0
+      HushCMS::PostCategory.count(:conditions => [ 'slug = ? AND id != ?', slug, id ]) > 0
     end
   end
 end

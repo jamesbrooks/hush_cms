@@ -107,8 +107,8 @@ ul#navigation li#nav-comments a {
 #sidebar a#sidebar-unpublish,
 #sidebar a#sidebar-edit-page,
 #sidebar a#sidebar-delete-page,
-#sidebar a#sidebar-new-category,
-#sidebar a#sidebar-edit-category,
+#sidebar a#sidebar-new-post-category,
+#sidebar a#sidebar-edit-post-category,
 #sidebar a#sidebar-new-post,
 #sidebar a#sidebar-edit-post,
 #sidebar a#sidebar-delete-post,
@@ -130,8 +130,8 @@ ul#navigation li#nav-comments a {
 #sidebar a#sidebar-unpublish:hover,
 #sidebar a#sidebar-edit-page:hover,
 #sidebar a#sidebar-delete-page:hover,
-#sidebar a#sidebar-new-category:hover,
-#sidebar a#sidebar-edit-category:hover,
+#sidebar a#sidebar-new-post-category:hover,
+#sidebar a#sidebar-edit-post-category:hover,
 #sidebar a#sidebar-new-post:hover,
 #sidebar a#sidebar-edit-post:hover,
 #sidebar a#sidebar-delete-post:hover,
@@ -156,12 +156,12 @@ ul#navigation li#nav-comments a {
 #sidebar a#sidebar-delete-page {
 	background-image: url(../images/hush_cms/page_delete.png);
 }
-#sidebar a#sidebar-new-category,
+#sidebar a#sidebar-new-post-category,
 #sidebar a#sidebar-new-post {
 	background-image: url(../images/hush_cms/newspaper_add.png);
 }
 #sidebar a#sidebar-edit-post,
-#sidebar a#sidebar-edit-category {
+#sidebar a#sidebar-edit-post-category {
 	background-image: url(../images/hush_cms/pencil.png);
 }
 #sidebar a#sidebar-new-snippet {
@@ -240,16 +240,16 @@ ul#navigation li#nav-comments a {
 }
 #sidebar ul li.hover a.move-higher,
 #sidebar ul li.hover a.move-lower,
-#sidebar ul li.hover a.delete-category,
-#sidebar ul li.hover a.edit-category,
+#sidebar ul li.hover a.delete-post-category,
+#sidebar ul li.hover a.edit-post-category,
 #sidebar ul li.hover a.delete-snippet,
 #sidebar ul li.hover a.edit-snippet {
 	display: block;
 }
 #sidebar ul li a.move-higher img,
 #sidebar ul li a.move-lower img,
-#sidebar ul li a.delete-category img,
-#sidebar ul li a.edit-category img,
+#sidebar ul li a.delete-post-category img,
+#sidebar ul li a.edit-post-category img,
 #sidebar ul li a.delete-snippet img,
 #sidebar ul li a.edit-snippet img {
 	position: absolute;
@@ -261,8 +261,8 @@ ul#navigation li#nav-comments a {
 #sidebar ul li a.move-lower {
 	bottom: 12px;
 }
-#sidebar ul li a.delete-category,
-#sidebar ul li a.edit-category,
+#sidebar ul li a.delete-post-category,
+#sidebar ul li a.edit-post-category,
 #sidebar ul li a.delete-snippet,
 #sidebar ul li a.edit-snippet {
 	display: none;
@@ -271,11 +271,11 @@ ul#navigation li#nav-comments a {
 	height: 16px;
 	width: 16px;
 }
-#sidebar ul li a.delete-category,
+#sidebar ul li a.delete-post-category,
 #sidebar ul li a.delete-snippet {
 	right: 0;	
 }
-#sidebar ul li a.edit-category {
+#sidebar ul li a.edit-post-category {
 	right: 18px;
 }
 

@@ -1,21 +1,21 @@
-- title "#{@category.name} - #{@post.title}"
+- title "#{@post_category.name} - #{@post.title}"
 - add_link generate_hush_cms_post_url(@post) if @post.published?
 
 - content_for :sidebar do
   - if @post.published?
-    = link_to 'Un-publish Post', unpublish_hush_cms_admin_category_post_path(@category, @post), :method => :put, :id => 'sidebar-unpublish'
+    = link_to 'Un-publish Post', unpublish_hush_cms_admin_post_category_post_path(@post_category, @post), :method => :put, :id => 'sidebar-unpublish'
   - else
-    = link_to 'Publish Post', publish_hush_cms_admin_category_post_path(@category, @post), :method => :put, :id => 'sidebar-publish'
+    = link_to 'Publish Post', publish_hush_cms_admin_post_category_post_path(@post_category, @post), :method => :put, :id => 'sidebar-publish'
 
-  = link_to 'Delete Post', hush_cms_admin_category_post_path(@category, @post), :method => :delete, :confirm => 'Are you sure?', :id => 'sidebar-delete-post'
-  = link_to 'Edit Post', edit_hush_cms_admin_category_post_path(@category, @post), :id => 'sidebar-edit-post'
+  = link_to 'Delete Post', hush_cms_admin_post_category_post_path(@post_category, @post), :method => :delete, :confirm => 'Are you sure?', :id => 'sidebar-delete-post'
+  = link_to 'Edit Post', edit_hush_cms_admin_post_category_post_path(@post_category, @post), :id => 'sidebar-edit-post'
 
 #breadcrumbs
-  = link_to('All Categories', hush_cms_admin_categories_path)
+  = link_to('All Categories', hush_cms_admin_post_categories_path)
   &raquo;
-  = link_to(@category.name, hush_cms_admin_category_posts_path(@category))
+  = link_to(@post_category.name, hush_cms_admin_post_category_posts_path(@post_category))
   &raquo;
-  = link_to(@post.title, hush_cms_admin_category_post_path(@category, @post))
+  = link_to(@post.title, hush_cms_admin_post_category_post_path(@post_category, @post))
 
 #rendered-content
   = @post.content

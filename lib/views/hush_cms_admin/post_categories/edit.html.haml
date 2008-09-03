@@ -1,17 +1,14 @@
-- title 'New Category'
+- title "Editing #{@post_category.name}"
 
 - content_for :sidebar do
-  = link_to 'New Category', new_hush_cms_admin_category_path, :id => 'sidebar-new-category'
-  = render :partial => 'categories', :object => @categories
+  = link_to 'New Category', new_hush_cms_admin_post_category_path, :id => 'sidebar-new-post-category'
+  = render :partial => 'post_categories', :object => @post_categories
 
-#breadcrumbs
-  = link_to 'All Categories', hush_cms_admin_categories_path
-
-- form_for @category, :url => hush_cms_admin_categories_path do |form|
+- form_for @post_category, :url => hush_cms_admin_post_category_path(@post_category) do |form|
   .row
     = form.label :name
     = form.text_field :name
-    
+  
   .row
     = form.label :description
     = form.text_area :description, :class => 'simple'
@@ -21,11 +18,11 @@
       = form.check_box :has_comments
       = image_tag 'hush_cms/comments.png'
       Comments
-      
-
+  
+  
     %span
       = form.check_box :has_feed
       = image_tag 'hush_cms/feed.png'
       Feed
-   
-  = submit_tag 'Create Category'
+
+  = submit_tag 'Update Category'

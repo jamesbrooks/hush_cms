@@ -1,0 +1,5 @@
+- title 'Categories'
+
+- content_for :sidebar do
+  = link_to 'New Category', new_hush_cms_admin_post_category_path, :id => 'sidebar-new-post-category'
+  = render :partial => 'post_categories', :object => @post_categories
