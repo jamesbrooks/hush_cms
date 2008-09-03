@@ -25,6 +25,22 @@ module HushCMS
         Dependencies.load_paths << path
         Dependencies.load_once_paths.delete(path)
       end
+      
+      # Load any user extensions
+      if File.exist?("#{RAILS_ROOT}/app/models/hush_cms_extensions")
+        Dir["#{RAILS_ROOT}/app/models/hush_cms_extensions/**/*.rb"].each { |extension| require extension }
+
+        Dir[File.join(File.dirname(__FILE__), 'models/**/*.rb')].each do |model|
+          class_name = /[^\/]+$/.match(model).to_s.gsub('.rb', '').classify
+          
+          if eval("defined? HushCMS#{class_name}Extension")
+            "HushCMS::#{class_name}".constantize.send :include, "HushCMS#{class_name}Extension".constantize
+          end
+          
+          #if (defined? )
+          #('HushCMS/' + /[^\/]+$/.match(model).gsub('.rb', '')).classify.constantize.send :include, 
+        end
+      end
 
       ActiveRecord::Base.class_eval { include ActiveRecord::Acts::List }
       ActionController::Base.append_view_path(File.join(File.dirname(__FILE__), 'views'))
