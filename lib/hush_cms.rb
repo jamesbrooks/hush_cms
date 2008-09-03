@@ -36,9 +36,6 @@ module HushCMS
           if eval("defined? HushCMS#{class_name}Extension")
             "HushCMS::#{class_name}".constantize.send :include, "HushCMS#{class_name}Extension".constantize
           end
-          
-          #if (defined? )
-          #('HushCMS/' + /[^\/]+$/.match(model).gsub('.rb', '')).classify.constantize.send :include, 
         end
       end
 
