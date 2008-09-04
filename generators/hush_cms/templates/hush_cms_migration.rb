@@ -66,6 +66,24 @@ class CreateHushCmsComponents < ActiveRecord::Migration
     end
     
     add_index :hush_cms_images, :name
+    
+    
+    create_table :hush_cms_calendars do |t|
+      t.string :name, :slug
+    end
+    
+    add_index :hush_cms_calendars, :slug
+    
+    
+    create_table :hush_cms_events do |t|
+      t.integer :calendar_id
+      t.string :name
+      t.text :details
+      t.date :start_date, :finish_date
+      t.time :start_time, :finish_time
+    end
+    
+    add_index :hush_cms_events, :calendar_id
   end
 
   def self.down
@@ -75,5 +93,7 @@ class CreateHushCmsComponents < ActiveRecord::Migration
     drop_table :hush_cms_comments
     drop_table :hush_cms_snippets
     drop_table :hush_cms_images
+    drop_table :hush_cms_calendars
+    drop_table :hush_cms_events
   end
 end

@@ -51,6 +51,10 @@ module ActionController
               p.resources :snippets
             end
             
+            a.resources :calendars do |c|
+              c.resources :events, :collection => { :all => :get }
+            end
+            
             a.resources :comments, :member => { :approve => :put, :unapprove => :put }
             a.resources :images
             a.resources :snippets

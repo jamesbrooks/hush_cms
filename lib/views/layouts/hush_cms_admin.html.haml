@@ -4,10 +4,10 @@
     %title Hush CMS Administration
     %meta{'http-equiv' => 'content-type', 'content' => 'text/html;charset=utf-8'}
     %meta{'http-equiv' => 'Content-Style-Type', 'content' => 'text/css'}
-    = stylesheet_link_tag 'hush_cms_admin'
+    = stylesheet_link_tag 'hush_cms_admin', 'hush_cms_date_picker'
     = javascript_include_tiny_mce_if_used
     = tiny_mce if using_tiny_mce?
-    = javascript_include_tag 'prototype', 'effects', 'dragdrop', 'hush_cms_admin', :cache => 'hush_cms_admin_cached'
+    = javascript_include_tag 'prototype', 'effects', 'dragdrop', 'hush_cms_admin', 'hush_cms_date_picker', :cache => 'hush_cms_admin_cached'
     
   %body
     #container
@@ -15,6 +15,7 @@
         %li#nav-pages= link_to 'Pages', hush_cms_admin_pages_path
         %li#nav-posts= link_to 'Posts', hush_cms_admin_post_categories_path
         %li#nav-images= link_to 'Images', hush_cms_admin_images_path
+        %li#nav-calendars= link_to 'Calendars', hush_cms_admin_calendars_path
         %li#nav-snippets= link_to 'Snippets', hush_cms_admin_snippets_path
         
         - if HushCMS::PostCategory.any_with_comments?

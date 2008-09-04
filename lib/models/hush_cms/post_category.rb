@@ -8,6 +8,7 @@ class HushCMS::PostCategory < ActiveRecord::Base
   
   before_validation :assign_slug
   
+  
   def to_s
     name
   end

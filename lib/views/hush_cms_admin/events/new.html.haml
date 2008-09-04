@@ -1,0 +1,36 @@
+- title "New Event in #{@calendar.name}"
+
+- content_for :sidebar do
+  = link_to 'Edit Calendar', edit_hush_cms_admin_calendar_path(@calendar), :id => 'sidebar-edit-calendar'
+  = link_to 'New Event', new_hush_cms_admin_calendar_event_path(@calendar), :id => 'sidebar-new-event'
+
+#breadcrumbs
+  = link_to('All Calendars', hush_cms_admin_calendars_path) + '&raquo;'
+  = link_to @calendar.name, hush_cms_admin_calendar_events_path(@calendar)
+
+- form_for @event, :url => hush_cms_admin_calendar_events_path(@calendar) do |form|
+  .row
+    = form.label :name
+    = form.text_field :name
+    
+  .row.half
+    = form.label :start_date
+    = form.text_field :start_date, :class => 'w8em format-d-m-y divider-dash'
+  
+  .row.half
+    = form.label :finish_date
+    = form.text_field :finish_date, :class => 'w8em format-d-m-y divider-dash'
+    
+  .row.half
+    = form.label :start_time
+    = form.text_field :start_time
+
+  .row.half
+    = form.label :finish_time
+    = form.text_field :finish_time
+  
+  .row
+    = form.label :details
+    = form.text_area :details
+    
+  = submit_tag 'Create Event'

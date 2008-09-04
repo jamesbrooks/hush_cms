@@ -1,0 +1,5 @@
+- title 'Calendars'
+
+- content_for :sidebar do
+  = link_to 'New Calendar', new_hush_cms_admin_calendar_path, :id => 'sidebar-new-calendar'  
+  = render :partial => 'calendars', :object => @calendars

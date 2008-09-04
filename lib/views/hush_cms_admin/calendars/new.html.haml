@@ -1,0 +1,15 @@
+- title 'New Calendar'
+
+- content_for :sidebar do
+  = link_to 'New Calendar', new_hush_cms_admin_calendar_path, :id => 'sidebar-new-calendar'  
+  = render :partial => 'calendars', :object => @calendars
+
+#breadcrumbs
+  = link_to 'All Calendars', hush_cms_admin_calendars_path
+
+- form_for @calendar, :url => hush_cms_admin_calendars_path do |form|
+  .row
+    = form.label :name
+    = form.text_field :name
+    
+  = submit_tag 'Create Calendar'

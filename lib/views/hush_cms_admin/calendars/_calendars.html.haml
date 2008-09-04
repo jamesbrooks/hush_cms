@@ -1,0 +1,11 @@
+- unless calendars.empty?
+  %ul#calendars.hoverable
+    - calendars.each do |calendar|
+      - unless calendar.new_record?
+        %li{:id => "calendar-#{calendar.id}"}
+          = link_to calendar.name, hush_cms_admin_calendar_events_path(calendar), :class => 'title'
+          %span= pluralize calendar.events.count, 'event'
+          
+          = link_to image_tag('hush_cms/pencil.png', :alt => 'Edit Calendar'), edit_hush_cms_admin_calendar_path(calendar), :class => 'edit-calendar'
+
+          = link_to image_tag('hush_cms/calendar_delete.png', :alt => 'Delete Calendar'), hush_cms_admin_calendar_path(calendar), :method => :delete, :class => 'delete-calendar', :confirm => 'Are you sure?'

@@ -1,0 +1,15 @@
+- title "#{@calendar.name} Events"
+
+- content_for :sidebar do
+  = link_to 'Edit Calendar', edit_hush_cms_admin_calendar_path(@calendar), :id => 'sidebar-edit-calendar'
+  = link_to 'New Event', new_hush_cms_admin_calendar_event_path(@calendar), :id => 'sidebar-new-event'
+  - if @all_events
+    = link_to 'Upcoming Events', hush_cms_admin_calendar_events_path(@calendar), :id => 'sidebar-upcoming-events'
+  - else
+    = link_to 'All Events', all_hush_cms_admin_calendar_events_path(@calendar), :id => 'sidebar-all-events'
+
+#breadcrumbs
+  = link_to('All Calendars', hush_cms_admin_calendars_path) + '&raquo;'
+  = link_to @calendar.name, hush_cms_admin_calendar_events_path(@calendar)
+
+%h3= @all_events ? 'All Events' : 'Upcoming Events'
