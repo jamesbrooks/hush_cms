@@ -5,8 +5,8 @@ class HushCMS::Image < ActiveRecord::Base
   
   has_attached_file :image,
     :styles => { :thumb => "100x100#" },
-    :path => ':rails_root/public/media/cms/:class/:id/:basename_:style.:extension',
-    :url => '/media/cms/:class/:id/:basename_:style.:extension'
+    :path => ':rails_root/public/media/cms/:class/:id/:style.:extension',
+    :url => '/media/cms/:class/:id/:style.:extension'
     
   validates_presence_of :name
   validates_uniqueness_of :name
