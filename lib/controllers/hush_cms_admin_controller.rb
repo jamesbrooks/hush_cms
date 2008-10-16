@@ -12,9 +12,9 @@ class HushCmsAdminController < ApplicationController
     :paste_auto_cleanup_on_paste => true,
     :theme_advanced_blockformats => %w{h1 h2 h3},
     :theme_advanced_buttons1 => %w{code formatselect bold italic underline strikethrough separator justifyleft justifycenter justifyright indent outdent separator bullist numlist forecolor backcolor separator link unlink image},
-    :theme_advanced_buttons2 => [],
+    :theme_advanced_buttons2 => %w{tablecontrols},
     :theme_advanced_buttons3 => [],
-    :plugins => %w{contextmenu paste},
+    :plugins => %w{contextmenu paste table},
     :relative_urls => false,
     :external_image_list_url => ActionController::Routing::Routes.named_routes['formatted_hush_cms_admin_images'].segments.map(&:to_s).join.gsub(/:format/, 'js')},
     :only => [:new, :create, :edit, :update])
