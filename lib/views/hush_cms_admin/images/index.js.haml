@@ -1,1 +1,1 @@
-= 'var tinyMCEImageList = new Array(' + @images.map { |i| "['#{i.name.gsub(/["']/) { |m| "\\#{m}" }}', '#{i.image.url}']" }.join(',') + ');'
+= 'var tinyMCEImageList = new Array(' + @images.map { |name, url| "['#{name.gsub(/["']/) { |m| "\\#{m}" }}', '#{url}']" }.join(',') + ');'

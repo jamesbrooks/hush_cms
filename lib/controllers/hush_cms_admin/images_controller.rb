@@ -11,7 +11,12 @@ class HushCmsAdmin::ImagesController < HushCmsAdminController
       [ :all ]
     end
     
-    @images = HushCMS::Image.by_name.send(*paginate_method)
+    @images = HushCMS::Image.by_name.send(*paginate_method).map { |i| [ i.name, i.image.url ] }
+    
+    # Include additional images if specified in configuration (images/additional) using eval
+    if HushCMS.configuration['images'] && HushCMS.configuration['images']['additional']
+      @images += eval(HushCMS.configuration['images']['additional'])
+    end
   end
   
   def show
