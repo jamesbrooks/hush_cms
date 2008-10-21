@@ -10,12 +10,24 @@ class HushCmsAdmin::ImagesController < HushCmsAdminController
     else
       [ :all ]
     end
-    
-    @images = HushCMS::Image.by_name.send(*paginate_method).map { |i| [ i.name, i.image.url ] }
-    
+      @images = []
     # Include additional images if specified in configuration (images/additional) using eval
     if HushCMS.configuration['images'] && HushCMS.configuration['images']['additional']
+      @images << ["Hush Images", HushCMS::Image.by_name.send(*paginate_method).map { |i| [ i.name, i.image.url ] }]
       @images += eval(HushCMS.configuration['images']['additional'])
+      
+      ims = []
+      @images.map {|cat, imgs|        
+        ims << ["===#{cat.capitalize}===", ""]
+        imgs.map {|name, url|
+          ims << [name.capitalize, url]
+        }
+        ims << [ "" , "" ]
+      }
+
+      @images = ims
+    else
+      @images = [HushCMS::Image.by_name.send(*paginate_method).map { |i| [ i.name, i.image.url ] }]
     end
   end
   

@@ -7,7 +7,6 @@ Test
 Requirements
 =======
 
-to make a trivial change
 haml
 paperclip
 tiny_mce (check out http://github.com/kete/tiny_mce)
