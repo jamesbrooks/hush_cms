@@ -90,8 +90,8 @@ class HushCMS::Page < ActiveRecord::Base
   end
   
   def self.locate(path, parent=nil)
-    page = parent ? parent.children.find_by_slug(path.shift) : find_by_slug(path.shift)
-    path.empty? ? page : locate(path, page)
+    page = parent ? parent.children.find_by_slug(path.shift) : find_by_slug_and_parent_id(path.shift, nil)
+    page ? (path.empty? ? page : locate(path, page)) : nil
   end  
 
   
