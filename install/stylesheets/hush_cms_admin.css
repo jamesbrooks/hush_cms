@@ -120,6 +120,10 @@ ul#navigation li#nav-comments a {
 #sidebar a#sidebar-new-file,
 #sidebar a#sidebar-delete-file,
 #sidebar a#sidebar-new-calendar,
+#sidebar a#sidebar-new-event,
+#sidebar a#sidebar-edit-calendar,
+#sidebar a#sidebar-all-events,
+#sidebar a#sidebar-upcoming-events,
 #sidebar a#sidebar-permanent {
 	display: block;
 	font-size: 0.8em;
@@ -143,6 +147,10 @@ ul#navigation li#nav-comments a {
 #sidebar a#sidebar-delete-file:hover,
 #sidebar a#sidebar-new-snippet:hover,
 #sidebar a#sidebar-new-calendar:hover,
+#sidebar a#sidebar-new-event:hover,
+#sidebar a#sidebar-edit-calendar:hover,
+#sidebar a#sidebar-all-events:hover,
+#sidebar a#sidebar-upcoming-events:hover,
 #sidebar a#sidebar-snippets:hover {
 	text-decoration: underline;
 }
@@ -190,6 +198,18 @@ ul#navigation li#nav-comments a {
 }
 #sidebar a#sidebar-snippets {
   background-image: url(../images/hush_cms/note.png);
+}
+#sidebar a#sidebar-new-event {
+  background-image: url(../images/hush_cms/date_add.png);
+}
+#sidebar a#sidebar-edit-calendar {
+  background-image: url(../images/hush_cms/calendar_edit.png);
+}
+#sidebar a#sidebar-all-events {
+  background-image: url(../images/hush_cms/calendar_view_week.png);
+}
+#sidebar a#sidebar-upcoming-events {
+  background-image: url(../images/hush_cms/calendar_view_day.png);
 }
 
 #content {
@@ -296,7 +316,13 @@ ul#navigation li#nav-comments a {
 }
 
 form .row {
+  clear: left;
 	margin-bottom: 20px;
+}
+form .row.half {
+  clear: none;
+  float: left;
+  width: 50%;
 }
 form .row label {
 	font-weight: bold;
@@ -354,6 +380,9 @@ form .fieldWithErrors .input-error {
 	-webkit-border-radius: 5px;
  	-opera-border-radius: 5px;
 }
+form .half .fieldWithErrors .input-error {
+  right: 64px;
+}
 
 .pagination {
   background-color: #eee;
@@ -395,6 +424,18 @@ ul.comments li p {
 	color: #846F41;
 }
 
+.date-picker-control {
+  margin: 5px !important;
+}
+#hush_cms_event_start_date,
+#hush_cms_event_finish_date {
+  width: 230px;
+  float: left;
+}
+#hush_cms_event_start_time,
+#hush_cms_event_finish_time {
+  width: 230px;
+}
 ul#files {
   list-style: none;
   margin: 0;
