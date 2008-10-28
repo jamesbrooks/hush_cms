@@ -1,0 +1,20 @@
+- title 'Files'
+
+- content_for :sidebar do
+  = link_to 'New File', new_hush_cms_admin_file_path, :id => 'sidebar-new-file'
+
+%ul#files.hoverable
+  - @files.each do |file|
+    %li{:class => file.image? ? 'image' : 'non-image'}
+      - if file.image?
+        = image_tag file.file(:thumb), :alt => "#{file.name} thumbnail"
+      - else
+        = image_tag "hush_cms/file_types/#{file.extension}.png", :alt => ''
+
+      %span= file.name
+      .options
+        = link_to image_tag('hush_cms/pencil.png'), edit_hush_cms_admin_file_path(file)
+        = link_to image_tag('hush_cms/delete.png'), hush_cms_admin_file_path(file), :method => :delete, :confirm => 'Are you sure?'
+
+%div{:style => 'clear: left'}
+= will_paginate @files if defined? WillPaginate

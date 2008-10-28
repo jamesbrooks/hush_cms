@@ -1,0 +1,1 @@
+= 'var tinyMCELinkList = new Array(' + @files.map { |name, url| "['#{name.gsub(/["']/) { |m| "\\#{m}" }}', '#{url}']" }.join(',') + ');'

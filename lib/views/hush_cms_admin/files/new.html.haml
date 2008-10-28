@@ -1,0 +1,18 @@
+- title 'New File'
+
+- content_for :sidebar do
+  = link_to 'New File', new_hush_cms_admin_file_path, :id => 'sidebar-new-file'
+
+#breadcrumbs
+  = link_to 'All Files', hush_cms_admin_files_path
+
+- form_for @file, :url => hush_cms_admin_files_path, :html => { :multipart => true } do |form|
+  .row
+    = form.label :name
+    = form.text_field :name
+    
+  .row
+    = form.label :file
+    = form.file_field :file
+    
+  = submit_tag 'Upload File'

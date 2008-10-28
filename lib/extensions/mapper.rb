@@ -56,7 +56,7 @@ module ActionController
             end
             
             a.resources :comments, :member => { :approve => :put, :unapprove => :put }
-            a.resources :images
+            a.resources :files, :collection => { :images => :get, :non_images => :get }
             a.resources :snippets
           end
         end

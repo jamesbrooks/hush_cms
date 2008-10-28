@@ -58,14 +58,14 @@ class CreateHushCmsComponents < ActiveRecord::Migration
     add_index :hush_cms_snippets, [ :slug, :page_id ]
     
     
-    create_table :hush_cms_images do |t|
-      t.string :name, :image_file_name, :image_content_type
-      t.integer :image_file_size
+    create_table :hush_cms_files do |t|
+      t.string :name, :file_file_name, :file_content_type
+      t.integer :file_file_size
       t.text :content
       t.timestamps
     end
     
-    add_index :hush_cms_images, :name
+    add_index :hush_cms_files, :name
     
     
     create_table :hush_cms_calendars do |t|
@@ -92,7 +92,7 @@ class CreateHushCmsComponents < ActiveRecord::Migration
     drop_table :hush_cms_posts
     drop_table :hush_cms_comments
     drop_table :hush_cms_snippets
-    drop_table :hush_cms_images
+    drop_table :hush_cms_files
     drop_table :hush_cms_calendars
     drop_table :hush_cms_events
   end

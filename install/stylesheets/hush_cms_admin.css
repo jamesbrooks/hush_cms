@@ -52,7 +52,7 @@ ul#navigation li#nav-posts a {
 ul#navigation li#nav-calendars a {
   background-image: url(../images/hush_cms/calendar.png);
 }
-ul#navigation li#nav-images a {
+ul#navigation li#nav-files a {
 	background-image: url(../images/hush_cms/image.png);	
 }
 ul#navigation li#nav-snippets a {
@@ -117,8 +117,8 @@ ul#navigation li#nav-comments a {
 #sidebar a#sidebar-delete-post,
 #sidebar a#sidebar-new-snippet,
 #sidebar a#sidebar-snippets,
-#sidebar a#sidebar-new-image,
-#sidebar a#sidebar-delete-image,
+#sidebar a#sidebar-new-file,
+#sidebar a#sidebar-delete-file,
 #sidebar a#sidebar-new-calendar,
 #sidebar a#sidebar-permanent {
 	display: block;
@@ -139,8 +139,8 @@ ul#navigation li#nav-comments a {
 #sidebar a#sidebar-new-post:hover,
 #sidebar a#sidebar-edit-post:hover,
 #sidebar a#sidebar-delete-post:hover,
-#sidebar a#sidebar-new-image:hover,
-#sidebar a#sidebar-delete-image:hover,
+#sidebar a#sidebar-new-file:hover,
+#sidebar a#sidebar-delete-file:hover,
 #sidebar a#sidebar-new-snippet:hover,
 #sidebar a#sidebar-new-calendar:hover,
 #sidebar a#sidebar-snippets:hover {
@@ -175,10 +175,10 @@ ul#navigation li#nav-comments a {
 #sidebar a#sidebar-delete-post {
 	background-image: url(../images/hush_cms/newspaper_delete.png);
 }
-#sidebar a#sidebar-new-image {
+#sidebar a#sidebar-new-file {
   background-image: url(../images/hush_cms/image_add.png);
 }
-#sidebar a#sidebar-delete-image {
+#sidebar a#sidebar-delete-file {
   background-image: url(../images/hush_cms/image_delete.png);
 }
 #sidebar a#sidebar-new-calendar {
@@ -395,12 +395,12 @@ ul.comments li p {
 	color: #846F41;
 }
 
-ul#images {
+ul#files {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-ul#images li {
+ul#files li {
   float: left;
   position: relative;
   overflow: hidden;
@@ -409,23 +409,38 @@ ul#images li {
   margin: 0 8px 10px 9px;
   text-align: center;
 }
-ul#images li > img {
+ul#files li img {
+  display: block;
+  margin-bottom: 5px;
   padding: 1px;
+  height: 100px;
+  width: 100px;
+}
+ul#files li.image img {
   border: 1px solid #ccc;
 }
-ul#images li span {
+ul#files li.non-image img {
+  border: none;
+  background: url(../images/hush_cms/file_types/default.png) no-repeat;
+}
+ul#files li span {
   display: block;
   font-size: 0.7em;
 }
-ul#images li .options {
+ul#files li .options {
   display: none;
 }
-ul#images li.hover .options {
+ul#files li.hover .options {
   display: block;
   position: absolute;
   top: 84px;
-  right: 3px;
+  right: 2px;
 }
-ul#images li .options a img {
+ul#files li .options a img {
   border: none;
+  background: none;
+  display: inline;
+  padding: 0;
+  height: 16px;
+  width: 16px;
 }
