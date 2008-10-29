@@ -12,7 +12,7 @@ paperclip
 tiny_mce (check out http://github.com/kete/tiny_mce)
 
 will_paginate (not required but strongly recommended, but will enhance post navigation functionality)
-
+chronic       (not required but enhanced time parsing for the calendar)
 
 Example
 =======

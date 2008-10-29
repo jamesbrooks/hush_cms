@@ -4,13 +4,25 @@ class HushCmsAdmin::EventsController < HushCmsAdminController
   
   
   def index
+    paginate_method = if defined?(WillPaginate)
+      [ :paginate, { :per_page => 20, :page => params[:page] } ]
+    else
+      [ :all ]
+    end
+    
     @upcoming_events = true
-    @events = @calendar.events.upcoming
+    @events = @calendar.events.upcoming.send(*paginate_method)
   end
   
   def all
+    paginate_method = if defined?(WillPaginate)
+      [ :paginate, { :per_page => 20, :page => params[:page] } ]
+    else
+      [ :all ]
+    end
+    
     @all_events = true
-    @events = @calendar.events
+    @events = @calendar.events.send(*paginate_method)
     
     render :template => 'hush_cms_admin/events/index'
   end
@@ -23,10 +35,12 @@ class HushCmsAdmin::EventsController < HushCmsAdminController
   end
   
   def create
+    chronisize params[:hush_cms_event][:start_time], params[:hush_cms_event][:finish_time]
+    
     @event = @calendar.events.build(params[:hush_cms_event])
     
     if @event.save
-      redirect_to hush_cms_calendar_events_url(@calendar)
+      redirect_to hush_cms_admin_calendar_events_url(@calendar)
     else
       prepare_error_messages_for_javascript @event
       render :action => 'new'
@@ -37,6 +51,8 @@ class HushCmsAdmin::EventsController < HushCmsAdminController
   end
   
   def update
+    chronisize params[:hush_cms_event][:start_time], params[:hush_cms_event][:finish_time]
+    
     if @event.update_attributes(params[:hush_cms_event])
       redirect_to hush_cms_calendar_events_url(@calendar)
     else

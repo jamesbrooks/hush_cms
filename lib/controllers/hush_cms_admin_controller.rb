@@ -34,6 +34,16 @@ protected
       @js_model_errors << "'#{attribute.gsub(/["']/) { |m| "\\#{m}" }}': '#{error.gsub(/["']/) { |m| "\\#{m}" }}'"
     end
   end
+  
+  def chronisize(*attributes)
+    if defined?(Chronic)
+      attributes.each do |attribute|
+        if attribute && chronisized_value = Chronic.parse(attribute)
+          attribute.replace chronisized_value.to_s(:hush_time).gsub(/^0/, '').downcase
+        end
+      end
+    end
+  end
 
 private
   def authenticate    
