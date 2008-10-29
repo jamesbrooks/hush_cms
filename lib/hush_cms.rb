@@ -52,6 +52,7 @@ module HushCMS
       
       ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge! :hush_date => "%b %d, %Y"    
       ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge! :hush_time => "%I:%M%p"
+      ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge! :hush_time_without_minutes => "%I%p"      
       
       validate_configuration
     end

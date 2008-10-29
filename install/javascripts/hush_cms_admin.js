@@ -27,4 +27,11 @@ Event.observe(window, 'load', function() {
 		  Element.removeClassName(e, 'hover');  
 		});
 	});
+	
+	// Stripe children of elements marked .stripeable
+	$$('.stripeable > *').each(function(e, i) {
+    if (i % 2 == 0) {
+      Element.addClassName(e, 'stripe');
+    }
+	})
 });

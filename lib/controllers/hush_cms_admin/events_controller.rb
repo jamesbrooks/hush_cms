@@ -54,7 +54,7 @@ class HushCmsAdmin::EventsController < HushCmsAdminController
     chronisize params[:hush_cms_event][:start_time], params[:hush_cms_event][:finish_time]
     
     if @event.update_attributes(params[:hush_cms_event])
-      redirect_to hush_cms_calendar_events_url(@calendar)
+      redirect_to hush_cms_admin_calendar_events_url(@calendar)
     else
       prepare_error_messages_for_javascript @event
       render :action => 'edit'
@@ -63,7 +63,7 @@ class HushCmsAdmin::EventsController < HushCmsAdminController
   
   def destroy
     @event.destroy
-    redirect_to hush_cms_admin_calendar_events_url(@calendar)
+    redirect_to :back
   end
   
   

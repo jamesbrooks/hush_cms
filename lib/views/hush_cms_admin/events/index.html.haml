@@ -13,3 +13,19 @@
   = link_to @calendar.name, hush_cms_admin_calendar_events_path(@calendar)
 
 %h3= @all_events ? 'All Events' : 'Upcoming Events'
+
+%ul#events-list.stripeable
+  - @events.each do |event|
+    %li
+      .name
+        = link_to image_tag('hush_cms/delete.png'), hush_cms_admin_calendar_event_path(@calendar, event), :method => :delete, :confirm => 'Are you sure?'
+        = link_to event.name, edit_hush_cms_admin_calendar_event_path(@calendar, event)
+        
+      .time
+        = event.start_date.to_s(:hush_date)
+        = to_formatted_hush_time(event.start_time) if event.start_time?
+        to
+        = event.finish_date.to_s(:hush_date)
+        = to_formatted_hush_time(event.finish_time) if event.finish_time?
+        
+      %p= strip_tags event.details
