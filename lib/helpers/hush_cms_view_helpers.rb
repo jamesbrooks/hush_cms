@@ -6,7 +6,7 @@ module HushCMSViewHelpers
   end
   
   def hush_cms_image(name)
-    image_tag HushCMS::File.find_by_name(name).file.url, :alt => name, :class => "#{name.slugify}-image" rescue ''
+    image_tag HushCMS::File.images.find_by_name(name).file.url, :alt => name, :class => "#{name.slugify}-image" rescue ''
   end
   
   def hush_cms_breadcrumbs(page)
