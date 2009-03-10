@@ -383,6 +383,13 @@ form .fieldWithErrors .input-error {
 form .half .fieldWithErrors .input-error {
   right: 64px;
 }
+form .row.check-box input {
+  display: inline;
+}
+form .row.check-box label {
+  display: inline;
+  font-size: 0.8em;
+s}
 
 .pagination {
   background-color: #eee;

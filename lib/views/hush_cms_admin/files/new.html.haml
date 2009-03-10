@@ -15,4 +15,8 @@
     = form.label :file
     = form.file_field :file
     
+  .row.check-box
+    = check_box_tag :resize, 1, true
+    = label_tag :resize, 'Resize to reasonable size if image'
+
   = submit_tag 'Upload File'
