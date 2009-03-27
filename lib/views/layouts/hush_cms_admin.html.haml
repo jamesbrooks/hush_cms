@@ -7,8 +7,8 @@
     = stylesheet_link_tag 'hush_cms_admin', 'hush_cms_date_picker'
     /[if IE]
       = stylesheet_link_tag 'hush_cms_ie_admin'
-    = javascript_include_tiny_mce_if_used
-    = tiny_mce if using_tiny_mce?
+    = include_tiny_mce_js_if_needed
+    = include_tiny_mce_if_needed
     = javascript_include_tag 'prototype', 'effects', 'dragdrop', 'hush_cms_admin', 'hush_cms_date_picker', :cache => 'hush_cms_admin_cached'
     
   %body
