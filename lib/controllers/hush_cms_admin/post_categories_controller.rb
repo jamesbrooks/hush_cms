@@ -38,7 +38,7 @@ class HushCmsAdmin::PostCategoriesController < HushCmsAdminController
   
   def destroy
     @post_category.destroy
-    redirect_to :back
+    redirect_to hush_cms_admin_post_categories_path
   end
   
   

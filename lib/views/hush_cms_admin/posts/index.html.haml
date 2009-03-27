@@ -4,6 +4,7 @@
 
 - content_for :sidebar do
   = link_to 'Edit Category', edit_hush_cms_admin_post_category_path(@post_category), :id => 'sidebar-edit-post-category'
+  = link_to 'Delete Category', hush_cms_admin_post_category_path(@post_category), :method => :delete, :confirm => 'Are you sure?', :id => 'sidebar-delete-post-category'
   = link_to 'New Post', new_hush_cms_admin_post_category_post_path(@post_category), :id => 'sidebar-new-post'
   = render :partial => 'posts', :object => @posts
 

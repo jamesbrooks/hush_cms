@@ -15,8 +15,8 @@ class HushCmsAdminController < ApplicationController
     :theme_advanced_buttons3 => [],
     :plugins => %w{contextmenu paste table},
     :relative_urls => false,
-    :external_image_list_url => ActionController::Routing::Routes.named_routes['formatted_images_hush_cms_admin_files'].segments.map(&:to_s).join.gsub(/:format/, 'js'),
-    :external_link_list_url => ActionController::Routing::Routes.named_routes['formatted_non_images_hush_cms_admin_files'].segments.map(&:to_s).join.gsub(/:format/, 'js')},
+    :external_image_list_url => ActionController::Routing::Routes.named_routes['images_hush_cms_admin_files'].segments.map(&:to_s).join.gsub(/:format/, 'js'),
+    :external_link_list_url => ActionController::Routing::Routes.named_routes['non_images_hush_cms_admin_files'].segments.map(&:to_s).join.gsub(/:format/, 'js')},
     :only => [:new, :create, :edit, :update])
   
   
