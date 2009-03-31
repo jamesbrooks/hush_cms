@@ -53,7 +53,7 @@ class HushCmsAdmin::FilesController < HushCmsAdminController
     if @file.save
       # TODO: Abstract this functionality out into HushCMS::File and the hush configuration
       if params[:resize]
-        @file.file.instance_variable_set(:@styles, @file.file.styles.merge({:original => ['500x2000>', nil]}))
+        @file.file.instance_variable_set(:@styles, @file.file.styles.merge({:original => {:geometry => '500x2000>', :processors => 'thumbnail'}}))
         @file.file.reprocess!
       end
 
