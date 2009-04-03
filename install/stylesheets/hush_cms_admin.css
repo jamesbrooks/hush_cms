@@ -61,6 +61,9 @@ ul#navigation li#nav-snippets a {
 ul#navigation li#nav-comments a {
 	background-image: url(../images/hush_cms/comments.png);	
 }
+ul#navigation li#nav-logout a {
+	background-image: url(../images/hush_cms/door_open.png);
+}
 
 #links {
 	height: 16px;
@@ -530,3 +533,23 @@ ul#events-list li p {
   font-size: 0.8em;
 }
 
+#login {
+  background-color: #fff;
+  border: 2px solid #c4bda2;
+  margin: 20px auto;
+  padding: 30px;
+  width: 410px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -opera-border-radius: 5px;
+}
+#login .message {
+  background-color: #ffe5e5;
+  border-bottom: 1px solid #fbb;
+  margin-bottom: 20px;
+  padding: 5px;
+  text-align: center;
+}
+#login .row input {
+  width: 400px;
+}

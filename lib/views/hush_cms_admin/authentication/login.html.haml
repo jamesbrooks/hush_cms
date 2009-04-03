@@ -1,0 +1,12 @@
+- title 'Login'
+
+- form_for :authentication, :url => hush_cms_admin_login_path do |form|
+  .row
+    = form.label :username
+    = form.text_field :username
+    
+  .row
+    = form.label :password
+    = form.password_field :password
+    
+  = submit_tag 'Login'

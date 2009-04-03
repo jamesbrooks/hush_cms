@@ -45,9 +45,12 @@ protected
   end
 
 private
-  def authenticate    
-    authenticate_or_request_with_http_basic('Hush Administration') do |username, password|
-      username == HushCMS.configuration['administration']['username'] && password == HushCMS.configuration['administration']['password']
+  def authenticate
+    if session[:is_hush_cms_admin]
+      true
+    else
+      redirect_to hush_cms_admin_login_url
+      false
     end
   end
 end
