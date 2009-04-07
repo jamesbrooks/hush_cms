@@ -13,14 +13,14 @@ module ActionController
           post_component_order = options[:order] || [ :category, :year, :month, :day, :slug ]
           
           named_route 'hush_cms_posts',
-            "#{path}/:category/:page",
+            [ path, (:category if post_component_order.include?(:category)), ':page'].compact.join('/'),
             :controller => HushCMS.configuration['controllers']['posts'],
             :action => 'index',
             :defaults => { :page => 1 },
             :requirements => { :page => /\d+/ }
           
           named_route 'hush_cms_formatted_posts',
-            "#{path}/:category/:format",
+            [ path, (:category if post_component_order.include?(:category)), ':format'].compact.join('/'),
             :controller => HushCMS.configuration['controllers']['posts'],
             :action => 'index',
             :defaults => { :format => 'html' },
