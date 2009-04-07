@@ -30,13 +30,13 @@ module ActionController
             "#{path}/#{post_component_order.select { |c| [ :category, :year, :month ].include?(c) }.map { |c| ":#{c}" }.join('/')}",
             :controller => HushCMS.configuration['controllers']['posts'],
             :action => 'archive',
-            :requirements => { :year => /\d{4}/, :month => /\d{2}/ }
+            :requirements => { :year => post_component_order.include?(:year) ? /\d{4}/ : nil, :month => post_component_order.include?(:month) ? /\d{2}/ : nil }
             
           named_route 'hush_cms_post',
             "#{path}/#{post_component_order.map { |c| ":#{c}" }.join('/')}",
             :controller => HushCMS.configuration['controllers']['posts'],
             :action => 'show',
-            :requirements => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
+            :requirements => { :year => post_component_order.include?(:year) ? /\d{4}/ : nil, :month => post_component_order.include?(:month) ? /\d{2}/ : nil, :day => post_component_order.include?(:day) ? /\d{2}/ : nil }
         end
         
         def hush_cms_admin(path)
