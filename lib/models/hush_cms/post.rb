@@ -38,12 +38,12 @@ class HushCMS::Post < ActiveRecord::Base
   end
   
   def self.archives(options={})
-    all({
+    (all({
       :select => 'YEAR(published_at) as year, MONTH(published_at) as month, COUNT(*) as count',
       :conditions => 'published_at IS NOT NULL',
       :group => 'year, month',
       :order => 'year DESC, month DESC'}.merge(options)
-    ).inject([]) { |c, g| c << { :year => g.year, :month => g.month, :count => g.count } }
+    ).inject([]) { |c, g| c << (g.year ? { :year => g.year, :month => g.month, :count => g.count } : nil) }).compact
   end
   
   
