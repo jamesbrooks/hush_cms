@@ -105,7 +105,7 @@ private
   
   def get_snippet(slug, recurse)
     if s = snippets.find_by_slug(slug)
-      s.content
+      s
     else
       recurse && parent ? parent.snippet(slug, recurse) : nil
     end
