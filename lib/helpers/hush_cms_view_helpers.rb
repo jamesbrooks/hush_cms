@@ -31,11 +31,15 @@ module HushCMSViewHelpers
 private
   def hush_cms_post_location(m, post)
     send m, {
-      :category => post.category.slug,
-      :year     => post.published_at.year,
-      :month    => '%02d' % post.published_at.month,
-      :day      => '%02d' % post.published_at.day,
-      :slug     => post.slug      
+      :category => named_route_uses_key?('hush_cms_post', :category) ? post.category.slug : nil,
+      :year     => named_route_uses_key?('hush_cms_post', :year)     ? post.published_at.year : nil,
+      :month    => named_route_uses_key?('hush_cms_post', :month)    ? '%02d' % post.published_at.month : nil,
+      :day      => named_route_uses_key?('hush_cms_post', :day)      ? '%02d' % post.published_at.day: nil,
+      :slug     => named_route_uses_key?('hush_cms_post', :slug)     ? post.slug : nil
     }
+  end
+  
+  def named_route_uses_key?(named_route, key)
+    ActionController::Routing::Routes.named_routes[named_route].segment_keys.include?(key)
   end
 end

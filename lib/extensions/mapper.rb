@@ -13,14 +13,14 @@ module ActionController
           post_component_order = options[:order] || [ :category, :year, :month, :day, :slug ]
           
           named_route 'hush_cms_posts',
-            "#{path}/:category/:page",
+            [ path, (:category if post_component_order.include?(:category)), ':page'].compact.join('/'),
             :controller => HushCMS.configuration['controllers']['posts'],
             :action => 'index',
             :defaults => { :page => 1 },
             :requirements => { :page => /\d+/ }
           
           named_route 'hush_cms_formatted_posts',
-            "#{path}/:category/:format",
+            [ path, (:category if post_component_order.include?(:category)), ':format'].compact.join('/'),
             :controller => HushCMS.configuration['controllers']['posts'],
             :action => 'index',
             :defaults => { :format => 'html' },
@@ -30,13 +30,13 @@ module ActionController
             "#{path}/#{post_component_order.select { |c| [ :category, :year, :month ].include?(c) }.map { |c| ":#{c}" }.join('/')}",
             :controller => HushCMS.configuration['controllers']['posts'],
             :action => 'archive',
-            :requirements => { :year => /\d{4}/, :month => /\d{2}/ }
+            :requirements => { :year => post_component_order.include?(:year) ? /\d{4}/ : nil, :month => post_component_order.include?(:month) ? /\d{2}/ : nil }
             
           named_route 'hush_cms_post',
             "#{path}/#{post_component_order.map { |c| ":#{c}" }.join('/')}",
             :controller => HushCMS.configuration['controllers']['posts'],
             :action => 'show',
-            :requirements => { :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ }
+            :requirements => { :year => post_component_order.include?(:year) ? /\d{4}/ : nil, :month => post_component_order.include?(:month) ? /\d{2}/ : nil, :day => post_component_order.include?(:day) ? /\d{2}/ : nil }
         end
         
         def hush_cms_admin(path)
