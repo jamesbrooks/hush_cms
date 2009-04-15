@@ -4,7 +4,7 @@
     %title Hush CMS Administration
     %meta{'http-equiv' => 'content-type', 'content' => 'text/html;charset=utf-8'}
     %meta{'http-equiv' => 'Content-Style-Type', 'content' => 'text/css'}
-    = stylesheet_link_tag 'hush_cms_admin', 'hush_cms_date_picker'
+    = stylesheet_link_tag 'hush_cms_admin', 'hush_cms_admin_extensions', 'hush_cms_date_picker'
     /[if IE]
       = stylesheet_link_tag 'hush_cms_ie_admin'
     = include_tiny_mce_js_if_needed
@@ -22,6 +22,9 @@
         
         - if HushCMS::PostCategory.any_with_comments?
           %li#nav-comments= link_to "Comments#{HushCMS::Comment.unapproved.count > 0 ? " (#{HushCMS::Comment.unapproved.count})" : ''}", hush_cms_admin_comments_path
+
+        - HushCMS.navigation.each do |name, path|
+          %li{:id => "nav-#{name.slugify}"}= link_to name, path
 
         %li#nav-logout= link_to 'Logout', hush_cms_admin_logout_path
       

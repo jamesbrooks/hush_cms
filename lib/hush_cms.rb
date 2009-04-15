@@ -16,7 +16,7 @@ require 'extensions/acts_as_list'
 
 module HushCMS
   class << self
-    attr_accessor :configuration
+    attr_accessor :configuration, :navigation
     
     def load
       %w( models controllers controllers/admin helpers ).each do |dir|
@@ -57,6 +57,11 @@ module HushCMS
       validate_configuration
     end
     
+    def add_admin_navigation_item(name, path)
+      @navigation ||= []
+      @navigation << [name, path]
+    end
+
   private
     def validate_configuration
       unless configuration
