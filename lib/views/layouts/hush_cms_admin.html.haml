@@ -19,10 +19,11 @@
         %li#nav-files= link_to 'Files', hush_cms_admin_files_path
         %li#nav-calendars= link_to 'Calendars', hush_cms_admin_calendars_path
         %li#nav-snippets= link_to 'Snippets', hush_cms_admin_snippets_path
-        %li#nav-logout= link_to 'Logout', hush_cms_admin_logout_path
         
         - if HushCMS::PostCategory.any_with_comments?
           %li#nav-comments= link_to "Comments#{HushCMS::Comment.unapproved.count > 0 ? " (#{HushCMS::Comment.unapproved.count})" : ''}", hush_cms_admin_comments_path
+
+        %li#nav-logout= link_to 'Logout', hush_cms_admin_logout_path
       
       %h1= @title
       #links
