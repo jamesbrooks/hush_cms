@@ -21,50 +21,6 @@ h1, h3 {
  	-opera-border-radius: 5px;
 }
 
-ul#navigation {
-	margin: -15px 0;
-	padding: 0;
-	list-style: none;
-	float: right;
-	font-size: 0.8em;
-}
-ul#navigation li {
-	float: left;
-	margin-left: 10px;
-}
-ul#navigation li a {
-	display: block;
-	height: 16px;
-	padding: 3px 0 0 18px;
-	color: #278FD5;
-	text-decoration: none;
-	background-repeat: no-repeat;
-}
-ul#navigation li a:hover {
-	text-decoration: underline;
-}
-ul#navigation li#nav-pages a {
-	background-image: url(../images/hush_cms/page.png);
-}
-ul#navigation li#nav-posts a {
-	background-image: url(../images/hush_cms/newspaper.png);	
-}
-ul#navigation li#nav-calendars a {
-  background-image: url(../images/hush_cms/calendar.png);
-}
-ul#navigation li#nav-files a {
-	background-image: url(../images/hush_cms/image.png);	
-}
-ul#navigation li#nav-snippets a {
-	background-image: url(../images/hush_cms/note.png);	
-}
-ul#navigation li#nav-comments a {
-	background-image: url(../images/hush_cms/comments.png);	
-}
-ul#navigation li#nav-logout a {
-	background-image: url(../images/hush_cms/door_open.png);
-}
-
 #links {
 	height: 16px;
 	margin: 2px 0 20px;
