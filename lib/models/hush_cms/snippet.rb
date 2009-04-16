@@ -10,6 +10,11 @@ class HushCMS::Snippet < ActiveRecord::Base
   before_validation :assign_slug
   
   
+  def to_s
+    content
+  end
+  
+  
 private
   def assign_slug
     self.slug = name.slugify
