@@ -69,6 +69,12 @@ class HushCmsAdmin::FilesController < HushCmsAdminController
   
   def update
     if @file.update_attributes(params[:hush_cms_file])
+      # TODO: Abstract this functionality out into HushCMS::File and the hush configuration
+      if params[:resize]
+        @file.file.instance_variable_set(:@styles, @file.file.styles.merge({:original => {:geometry => '500x2000>', :processors => 'thumbnail'}}))
+        @file.file.reprocess!
+      end
+      
       redirect_to hush_cms_admin_files_url
     else
       prepare_error_messages_for_javascript @file

@@ -17,4 +17,8 @@
     = form.file_field :file
     = image_tag @file.file.url, :alt => @file.name, :class => 'image'
     
+  .row.check-box
+    = check_box_tag :resize, 1, true
+    = label_tag :resize, 'Resize to reasonable size if image is large'
+    
   = submit_tag 'Update file'
