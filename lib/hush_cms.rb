@@ -54,11 +54,12 @@ module HushCMS
       ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge! :hush_time => "%I:%M%p"
       ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge! :hush_time_without_minutes => "%I%p"      
       
+      @navigation = []
+      
       validate_configuration
     end
     
     def add_admin_navigation_item(name, path)
-      @navigation ||= []
       @navigation << [name, path]
     end
 
