@@ -12,6 +12,6 @@ module HushCmsAdminHelper
   end
   
   def to_formatted_hush_time(time)
-    time.to_s(time.min > 0 ? :hush_time : :hush_time_without_minutes).gsub(/^0/, '').downcase
+    time.to_s(time.min > 0 ? :hush_time : :hush_time_without_minutes).gsub(/^0/, '').downcase rescue nil
   end
 end
