@@ -8,6 +8,8 @@ class HushCMS::Comment < ActiveRecord::Base
   
   validates_presence_of :name, :email, :content
   
+  attr_protected :approved
+  
   
   def approve!
     update_attribute :approved, true
